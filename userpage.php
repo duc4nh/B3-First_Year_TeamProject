@@ -1,7 +1,35 @@
 <!-- header and menu left -->
-<?php include('header_menuleft.php'); ?>
+<?php include('header_menuleft.php'); 
+ 
+        $user_id = $_GET['id'];
+        $connect = mysql_connect("ramen.cs.man.ac.uk", "12_COMP10120_B3", "jIho9xRbbSbPvcIC") or die ("Could not connect!");
+        mysql_select_db("12_COMP10120_B3", $connect) or die("Could not find db!");
+  
+        $query = mysql_query("SELECT * FROM users WHERE user_id = '$user_id' ");
+        while ($row = mysql_fetch_assoc($query)) 
+         {
+           $dbemail = $row['email'];
+           $dbpassword = $row['password'];
+           $user_id = $row['user_id'];
+           $name = $row['name'];
+           $last_name = $row['last_name'];
+           $description = $row['description'];
+           $picture = $row['picture'];
+         }
+         if($picture == NULL)
+           $picture = 'http://www.worldofchemicals.com/Woclite/tmp/chem/no_image.gif';
+      
+  ?>
 
   <!-- Main body for page -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
   <div id="body">
     <div id="top_search">
       <input class="search_box" type="text"><input class="search_button" value="SEARCH" type="submit"/>
@@ -10,7 +38,7 @@
     <div id="item_page">
       <div id="left_item">
         <div id="profile_pic">
-          <img src="images/smile.jpg">
+          <img height="150" weight="150" src="<?php echo $picture; ?>">
         </div>
         <br/>
         <div id="user_contact">
@@ -18,14 +46,12 @@
         </div>
       </div>
       <div id="item_title">
-
-        <h3><?php echo $_SESSION['name']." ".$_SESSION['last_name']; ?> </h3>
+        <h2><?php echo $name." ".$last_name; ?> </h2>
 	<div id="description"><h4>Description</h4>
-	<p>My Manchester is a personalised online space for current students, which provides easy access to learning resources, services, student support and information, all in one place.
-If you are not a current student you can still access certain resources from this page, such as the Crucial Guide Live and our 'askme' Help and Support resources.
-Features include:</p>
+	<p><?php echo $description; ?></p>
       </div>        
     </div>
+
 
 <div id="description">
 <table border="1">
@@ -35,16 +61,38 @@ Features include:</p>
   </tr>
   <tr>
     <td >
-      <li id="item_table"><a href="index.html">Item 1</a>
-      <li id="item_table"><a href="index.html">Item 2</a>
-      <li id="item_table"><a href="index.html">Item 2</a>
-      <li id="item_table"><a href="index.html">Item 2</a>
-    </td>
-    <td>
-      <li id="item_table"><a href="index.html">Item 1</a>
-      <li id="item_table"><a href="index.html">Item 2</a>
-      <li id="item_table"><a href="index.html">Item 2</a>
-      <li id="item_table"><a href="index.html">Item 2</a>
+<?php 
+  $limit_wish=0;
+  $limit_trade=0;
+  $query2 = mysql_query("SELECT * FROM wishlist WHERE user_id = '$user_id' "); 
+    while ($row = mysql_fetch_assoc($query2)) 
+         {
+           $item_id = $row['item_id'];
+         }
+         
+  $query3 = mysql_query("SELECT * FROM items WHERE item_id = '$item_id' ");
+     while ($row = mysql_fetch_assoc($query3)) 
+         {
+           $item_name_wish = $row['name'];
+           echo "<li id='item_table'><a href='index.html'>".$item_name_wish."</a>";
+           $limit_wish++;
+           if($limit_wish == 5)
+            break;
+         }
+  echo "</td>
+    <td>";
+
+  $query4 = mysql_query("SELECT * FROM items WHERE user_id = '$user_id' ");
+     while ($row = mysql_fetch_assoc($query4)) 
+         {
+           $item_name_trade = $row['name'];
+           echo "<li id='item_table'><a href='index.html'>".$item_name_trade."</a>";
+           $limit_trade++;
+           if($limit_trade == 5)
+            break;
+         }
+         ?>
+      
     </td>
   </tr>
 </table>
@@ -52,18 +100,7 @@ Features include:</p>
 
       
       <div id="item_comments">
-        <form method="post">
-          <h4>User Feedbacks:</h4>
-          </br><hr>
-	  <li><a href="index.html">User 1</a> : Good! <hr>
-          <li><a href="index.html">User 2</a> : Good! <hr>
-          <li><a href="index.html">User 3</a> : Good! <hr>
-          <li><a href="index.html">User 4</a> : Good! <hr>
-          <li><a href="index.html">User 5</a> : Good! <hr>
-	  </br>
-	  <textarea name="comments" >Leave your feedback here</textarea><br />
-          <button type="submit" name="send_mess" />Submit</button>
-        </form>      
+       <div class="fb-comments" data-href="http://soba.cs.man.ac.uk/~berianv2/FOLDER/B3-First_Year_TeamProject/userpage.php?id=<?php echo $_SESSION['user_id'];?>" data-width="675" data-num-posts="10"></div>      
       </div>
 
     </div>
