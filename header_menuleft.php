@@ -1,38 +1,59 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
-<html>
+<html >
 <head>
-<title>MyUniTrader Home page</title>
+<title>MyUniTrader</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+<?php session_start(); ?>
 <!-- Main holder to center page -->
 <div id="wrapper">
   <!-- Header information -->
   <div id="header">
     <div id="top_selection">
-     Welcome Student!  You can Log in or <a href="registerForm.php">Create an account</a>
+
+      <?php
+      if(!$_SESSION) 
+      {
+        echo "Welcome Student!  You can Log in or <a href='registerForm.php'>Create an account</a>";
+      }
+      else
+        echo "Welcome ".$_SESSION['name']." ".$_SESSION['last_name']."!";
+      ?>
     </div>
     <div id="logo">
       <img alt="logo" width="200" src="images/logo2.gif" />
     </div>
     <div id="login_top">
-      <form name="login_form" action="login.php" method="post">
-        <table width="100%" border="0" cellpadding="0" cellspacing="2">
+      <?php
+      if(!$_SESSION) 
+      {
+        echo 
+      "<form name='login_form' action='login.php' method='post'>
+        <table width='100% border='0' cellpadding='0' cellspacing='2'>
           <tr>
-            <td width="1%">Email</td>
-            <td><input type="text" name="email" /></td>
+            <td width='1%''>Email</td>
+            <td><input type='text' name='email' /></td>
           </tr>
           <tr>
             <td>Password</td>
-            <td><input type="password" name="password" /></td>
+            <td><input type='password' name='password' /></td>
           </tr>
           <tr>
             <td>&nbsp;</td>
-            <td><button type="submit" name="login_btn" />Log in</button></td>
+            <td><button type='submit' name='login_btn' />Log in</button></td>
           </tr>
         </table>
-      </form>
+      </form>";
+      }
+      else
+      {
+         echo "<img height='30' weight='30' src='".$_SESSION['picture']."' >";
+         echo "Hello, ".$_SESSION['name']." ".$_SESSION['last_name']."!<br>";
+         echo "<a href='logout.php'>Log out!</a>";
+      }
+     ?>
     </div>
     
     <div id="menu_tab">
@@ -104,7 +125,9 @@
 </div>
     
   </div>
+
   
+   
   
   
   <!-- Menu ends -->
