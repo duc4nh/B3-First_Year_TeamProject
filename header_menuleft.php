@@ -73,6 +73,12 @@
                          <li class="divider"></li>
                          <li><a href="about_us.php.html" class="nav6">Contact</a></li>
                          <li class="divider"></li>
+                         <?php if($_SESSION) {
+
+                  echo  "<li><a href='upload_item.php' class='nav7'>Upload item</a></li>
+                         <li class='divider'></li>";
+                         }
+                         ?>
                     </ul>
 
              <div class="right_menu_corner"></div>
