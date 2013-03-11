@@ -5,43 +5,37 @@
   <div id="body">
     <div id="top_search">
       <input class="search_box" type="text"><input class="search_button" value="SEARCH" type="submit"/>
-    
-        </br>
-        </br>
-        <h3>Welcome to the registration page</h3></br>
 
-        Please fill the blanks for creating new account</br>
-        </br>
-      <div id="register_box">
-        <form name="input" action="register.php" method="get">  
-          <table width="100%" border="0" cellpadding="0" cellspacing="2">
-            <tr>
-            <td width="1%">Username: </td>
-              <td><input type="text" name="regname"></td>
-            </tr><tr></tr>
-            <tr>
-              <td width="1%"> E-mail adress: </td>
-              <td> <input type="text" name="regemail"></td>
-            </tr><tr></tr>
-            <tr>
-              <td width="1%">Password:</td>
-              <td><input type="password" name="regpass1"></td>
-            </tr><tr></tr>
-            <tr>
-              <td width="1%">Re-type password: </td>
-              <td><input type="password" name="regpass2"></td>
-            <tr>
-              <td>&nbsp;</td>
-              <td><button type="submit" />     Submit      </button></td>
-            </tr><tr></tr>
-          </table>
-        </form>
-      </div>
-    </div>
-   
+</br></br></br>
+<h3>Welcome to the registration page</h3>
+Please fill the blanks below</br></br>
+
+<div id="register_box">
+  <form name="input" action="register.php" method="post">
+    <fieldset>
+      <legend>Personal information:</legend></br>
+      <table width="100%" border="0" cellpadding="0" cellspacing="2">
+      <tr>
+      <td width="230px">E-mail adress:</td><td><input type="text" name="regemail"><br></td>
+      </tr><tr></tr>
+      <tr>
+      <td>Password:</td><td><input type="text" name="regpass1"><br></td>
+      </tr><tr></tr>
+      <tr>
+      <td>Re-type password:</td><td><input type="text"name="regpass2"><br></td>
+      </tr><tr></tr>
+      <tr>
+      <td><input type="submit" value="Submit"></td>
+      </tr><tr></tr>
+      </table></br>
+    </fieldset>  
+  </form>
+</div>
+
+    </div>   
   </div>
 
   <!-- Main body for page ends -->
-    
+  
 <!-- Footer information -->
 <?php include('footer.php'); ?>

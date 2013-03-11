@@ -9,7 +9,7 @@
         </div>
         
         <div class="right_footer">
-        <a href="index.html">Back to Homepage</a>
+        <a href="index.php">Back to Homepage</a>
         <a href="about_us.php">About Us</a>
         <a href="about_us.php">Contact</a>
         </div>   

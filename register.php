@@ -1,49 +1,55 @@
-<html>
-<head>
-<title> register </title>
-</head>
+<!-- header and menu left -->
+<?php include('header_menuleft.php'); ?>
+  
+  <!-- Main body for page -->
+  <div id="body">
+    <div id="top_search">
+       <input class="search_box" type="text"><input class="search_button" value="SEARCH" type="submit"/>
+    </div>
+   
+  </div>
+  <?php
+$email = $_POST['regemail'];
+$pass1 = $_POST['regpass1'];
+$pass2 = $_POST['regpass2'];
 
-<body>
-<?php
-
-$result = mysql_query("SELECT * FROM names WHERE `name` = '".$_GET['regname']."'");
-
-if(!eregi("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$",
-$_GET["regemail"]))
+include('config.php');
+$result = mysql_query("SELECT * FROM users WHERE email = '$email' ");
+$numrows = mysql_num_rows($result);
+if(!preg_match("~^(\w|\\-|\\.){1,}@(([a-z]|[A-Z]|\\-)*\\.?)*\\.([a-z]|[A-Z]|\\-){1,4}$~", $email))
 {
-  echo "Your e-mail is invalid"
+  echo "Your e-mail is invalid";
 }
 
-else if($_GET["regpass1"]!=$_GET["regpass2"])
+else 
+  if($pass1!=$pass2)
   {
-    echo "Passwords do not match"
+    echo "<h2>Sorry. Passwords do not match</h2>";
+    echo "Click <a href='registerForm.php'>here</a> to try again.";
   }
   
-  else if(!mysql_numrows($result))
+  else 
   {
-    echo "User name is already in use"
-  }
+    if($numrows != 0)
+    {
+      echo "<h2>Sorry. User email is already in use.</h2>";
+      echo "Click <a href='registerForm.php'>here</a> to try again.";
+    }
   
-  else
-  {
+    else
+    {
 
-  $conn= mysql_connect("ramen.cs.man.ac.uk", "12_COMP10120_B3", "jIho9xRbbSbPvcIC")
-  or die('Could not connect: ' . mysql_error());
+      
 
-  mysql_select_db("12_COMP10120_B3",$conn);
+      mysql_query("INSERT into users (email, password) values ('$email','$pass1')") or die (mysql_error());
+      echo "<h2>Thank you!!! You have registered sucessfully</h2>";
+      echo "Click here to go back to the <a href='index.php'>Index Page</a>.";
 
-  $sql="insert into users (name,email,password)values('$_GET[regname]','$_GET[regemail]','$_GET[regpass1]')";
-
-  $result=mysql_query($sql,$conn) or die(mysql_error());
-
-
-  echo "<h1>you have registered sucessfully</h1>";
-
-
-
-  echo "<a href='index.php'>go to login page</a>";
-
+    }
   }
 ?>
-</body>
-</html>
+  
+  <!-- Main body for page ends -->
+  
+<!-- Footer information -->
+<?php include('footer.php'); ?>

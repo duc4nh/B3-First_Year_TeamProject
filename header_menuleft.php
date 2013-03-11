@@ -23,7 +23,7 @@
       ?>
     </div>
     <div id="logo">
-      <img alt="logo" width="200" src="images/logo2.gif" />
+      <a href="index.php" class="nav1"><img alt="logo" width="200" src="images/logo2.gif" /></a>
     </div>
     <div id="login_top">
       <?php
@@ -59,11 +59,11 @@
     <div id="menu_tab">
             <div class="left_menu_corner"></div>
                     <ul class="menu">
-                         <li><a href="index.html" class="nav1">  Home </a></li>
+                         <li><a href="index.php" class="nav1">  Home </a></li>
                          <li class="divider"></li>
-                         <li><a href="#" class="nav2">Buying</a></li>
+                         <li><a href="buying.php" class="nav2">Buying</a></li>
                          <li class="divider"></li>
-                         <li><a href="#" class="nav3">Selling</a></li>
+                         <li><a href="selling.php" class="nav3">Selling</a></li>
                          <li class="divider"></li>
                          <li><a href="#" class="nav4">My Profile</a></li>
                          <li class="divider"></li>
@@ -71,7 +71,7 @@
                          <li class="divider"></li>                         
                          <li><a href="about_us.php" class="nav5">About Us </a></li>
                          <li class="divider"></li>
-                         <li><a href="about_us.php.html" class="nav6">Contact</a></li>
+                         <li><a href="about_us.php" class="nav6">Contact</a></li>
                          <li class="divider"></li>
                          <?php if($_SESSION) {
 
