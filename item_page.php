@@ -1,56 +1,106 @@
 <!-- header and menu left -->
-<?php include('header_menuleft.php'); ?>
+<?php include('header_menuleft.php'); 
+  $item_id = $_GET['id'];
+
+  include('config.php');
+  $query = mysql_query("SELECT * FROM items WHERE item_id = '$item_id' ");
+  while ($row = mysql_fetch_assoc($query)) 
+  {
+    $user_id = $row['user_id'];
+    $creation_date = $row['creation_date'];
+    $expiration_date = $row['expiration_date'];
+    $price = $row['price'];
+    $status = $row['status'];
+    $type = $row['type'];
+    $name = $row['name'];
+    $description = $row['description'];
+    $category_id = $row['category_id'];
+    $picture = $row['picture'];
+  }
+  if($picture == NULL)
+    $picture = 'http://www.worldofchemicals.com/Woclite/tmp/chem/no_image.gif';
+    
+  $user = mysql_query("SELECT * FROM users WHERE user_id = '$user_id' ");
+  while ($row = mysql_fetch_assoc($user)) 
+  {
+    $user_name = $row['name'];
+    $user_last_name = $row['last_name'];
+  }
+  $category = mysql_query("SELECT * FROM categories WHERE category_id = '$category_id' ");
+  while ($row = mysql_fetch_assoc($category)) 
+  {
+    $category_name = $row['category_name'];
+  }
+?>
   
   <!-- Main body for page -->
   <div id="body">
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=182540261879239";
+    fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));</script>
+
     <div id="top_search">
       <input class="search_box" type="text"><input class="search_button" value="SEARCH" type="submit"/>
     </div>
     <div id="item_page">
       <div id="left_item">
         <div id="profile_pic">
-          <img src="images/ipad.jpg">
+          <img height="150" weight="150" src="<?php echo $picture; ?>">
         </div>
         <br/>
         <div id="user_contact">
-          <h5>Owner: <a href="index.html">Chris Johnson</a></h5>
+          <h5>Owner: <a href="index.html"><?php echo $user_name." ".$user_last_name; ?> </a></h5>
           <button type="submit" name="send_mess" />Send message</button>
         </div>
       </div>
       <div id="item_title">
-        <b>Title:</b>  IPad 3
+        <b>Title:</b>  <?php echo $name; ?>
         <hr>
       
-        <b>Price:</b>  $450
+        <b>Price:</b>  $<?php echo $price; ?>
         <hr>
-        <b>Payment:</b>  Paypal
-        <hr>
-      
-        <b>Delivery:</b>  By mail
-        <hr>
-        <b>Location:</b>  Manchester
+        <b>Creation date:</b>  <?php echo $creation_date; ?>
         <hr>
       
-        <b>ZIP</b>  M14
+        <b>Expiration date:</b> <?php echo $expiration_date; ?>
         <hr>
-        <b>Details</b>  -
+        <b>Category:</b>  <?php echo $category_name; ?>
         <hr>
+      
+        <b>Status</b>  
+        <?php
+          if($status == 1)
+            echo "Item is available";
+          else
+            echo "Item not available";
+         ?>
+        <hr>
+      
+       
       </div> 
       <div id="item_trade">
         <button type="submit" name="send_mess" />Trade</button>
-        <button type="submit" name="send_mess" />Add to wishlist</button>
+
+        <a href="wishList.php?id=<?php echo $item_id;?>"><button>Add to wishlist</button></a>
       </div>
+      <br><br>
       <div id="description"><h4>Description</h4>
 
-        <p>Everything you do with iPad, you do through its large, beautiful display. And when the display is better, the entire iPad experience is better. The Retina display on iPad features a 2048-by-1536 resolution, rich color saturation, and an astounding 3.1 million pixels. That’s four times the number of pixels in iPad 2 and a million more than an HDTV. Those pixels are so close together, your eyes can’t discern individual ones at a normal viewing distance. When you can’t see the pixels, you see the whole picture. Or article. Or game. In ways you never could before.
-        </p>
+        <p><?php echo $description; ?></p>
       </div>
+
+      <br>
+      <br>
       <div id="item_comments">
-        <form method="post">
-          <h4>Comments:</h4>
-          <textarea name="comments" >Hey! What do you think about this product?</textarea><br />
-          <button type="submit" name="send_mess" />Submit comment</button>
-        </form>      
+        <h4>Comments</h4>
+  
+                <div class="fb-comments" data-href="http://rtd.lt/fbcomments/?id=<?php echo $item_id;?>" data-width="675" data-num-posts="10"></div>
+
       </div>
       <div id="profile_wanted_items">
         <h4>User wishlist</h4>
