@@ -5,24 +5,34 @@
   <div id="body">
     <div id="top_search">
       <input class="search_box" type="text"><input class="search_button" value="SEARCH" type="submit"/>
-    
 
-Welcome to the registration page</br>
+</br></br></br>
+<h3>Welcome to the registration page</h3>
+Please fill the blanks below</br></br>
 
-Please fill the blanks for creating new account</br>
+<div id="register_box">
+  <form name="input" action="register.php" method="post">
+    <fieldset>
+      <legend>Personal information:</legend></br>
+      <table width="100%" border="0" cellpadding="0" cellspacing="2">
+      <tr>
+      <td width="230px">E-mail adress:</td><td><input type="text" name="regemail"><br></td>
+      </tr><tr></tr>
+      <tr>
+      <td>Password:</td><td><input type="text" name="regpass1"><br></td>
+      </tr><tr></tr>
+      <tr>
+      <td>Re-type password:</td><td><input type="text"name="regpass2"><br></td>
+      </tr><tr></tr>
+      <tr>
+      <td><input type="submit" value="Submit"></td>
+      </tr><tr></tr>
+      </table></br>
+    </fieldset>  
+  </form>
+</div>
 
-
-<form name="input" action="register.php" method="post">
-
-E-mail adress: <input type="text" name="regemail"><br>
-
-Password: <input type="text" name="regpass1"><br>
-Re-type password: <input type="text" name="regpass2"><br>
-<input type="submit" value="Submit">
-</form>
-   
-    </div>
-   
+    </div>   
   </div>
 
   <!-- Main body for page ends -->
