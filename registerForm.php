@@ -16,13 +16,19 @@ Please fill the blanks below</br></br>
       <legend>Personal information:</legend></br>
       <table width="100%" border="0" cellpadding="0" cellspacing="2">
       <tr>
-      <td width="230px">E-mail adress:</td><td><input type="text" name="regemail"><br></td>
+      <td width="230px">Your first name:</td><td><input type="text" name="refirstname"><br></td>
       </tr><tr></tr>
       <tr>
-      <td>Password:</td><td><input type="text" name="regpass1"><br></td>
+      <td>Your last name:</td><td><input type="text" name="relastname"><br></td>
       </tr><tr></tr>
       <tr>
-      <td>Re-type password:</td><td><input type="text"name="regpass2"><br></td>
+      <td>E-mail adress:</td><td><input type="text" name="regemail"><br></td>
+      </tr><tr></tr>
+      <tr>
+      <td>Password:</td><td><input type="password" name="regpass1"><br></td>
+      </tr><tr></tr>
+      <tr>
+      <td>Re-type password:</td><td><input type="password" name="regpass2"><br></td>
       </tr><tr></tr>
       <tr>
       <td><input type="submit" value="Submit"></td>
