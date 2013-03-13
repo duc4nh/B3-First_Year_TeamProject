@@ -72,12 +72,12 @@
                          <li class="divider"></li>
 			 <?php
       			 if(!empty($_SESSION['user_id']))
-			 { ?>
-			 <li><a href='userpage.php?id=<?=$_SESSION['user_id']; ?>' class='nav4'>My Profile</a></li>
-			 <li class="divider"></li>
-                         <li><a href="#" class="nav4">My Wishlist</a></li>
-                         <li class="divider"></li>
-			 <?php } ?>                         
+			 { echo"
+			 <li><a href='userpage.php?id=".$_SESSION['user_id']."' class='nav4'>My Profile</a></li>
+			 <li class='divider'></li>
+                         <li><a href='wishpage.php'' class='nav4'>My Wishlist</a></li>
+                         <li class='divider'></li>";
+			  } ?>                         
                          <li><a href="about_us.php" class="nav5">About Us </a></li>
                          <li class="divider"></li>
                          <li><a href="about_us.php" class="nav6">Contact</a></li>
