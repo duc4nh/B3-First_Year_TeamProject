@@ -229,9 +229,17 @@ width: 700px;
 }
 #item_table {
 text-align:center;
+background-color: #BFBFBF;
+}
+#item_table a{
+text-decoration:none;
+  color: #000000;
 }
 #title_table {
-background-color: #FFA500;
+background-color: #A30000;
+color: #FFF;
+font-weight: normal;
+text-shadow:1px 1px #000000; 
 }
 /*------------------------Item page----------------------*/
 #item_page {
@@ -390,7 +398,10 @@ display:block; float:left; padding:0px 8px 0px 22px; margin:0 14px 0 14px;height
 a.nav6:link, a.nav6:visited {
 display:block; float:left; padding:0px 8px 0px 22px; margin:0 14px 0 14px;height:50px;text-decoration:none; background:url(images/contact-new.png) no-repeat left; color:#676d77;}
 
-a.nav1:hover, a.nav2:hover, a.nav3:hover, a.nav4:hover, a.nav5:hover, a.nav6:hover {
+a.nav7:link, a.nav7:visited {
+display:block; float:left; padding:0px 8px 0px 22px; margin:0 14px 0 14px;height:50px;text-decoration:none; background:url(images/contact-new.png) no-repeat left; color:#676d77;}
+
+a.nav1:hover, a.nav2:hover, a.nav3:hover, a.nav4:hover, a.nav5:hover, a.nav6:hover, a.nav7:hover {
 color:#333333;}
 
 /*--------------footer----------------*/
