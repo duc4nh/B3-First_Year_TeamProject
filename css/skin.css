@@ -1,0 +1,26 @@
+
+
+/* SLIDER ----------------------------------------------------*/.lof-slidecontent .slider-description {
+  color: #e6e6e6;
+}
+.lof-slidecontent .slider-description a {
+  color: #FFF;
+}
+.lof-slidecontent .slider-description a.readmore {
+  color: #fcb019;
+}
+.lof-slidecontent .active {
+  border-top: 3px #cb5432 solid;
+}
+/* FOOTER ----------------------------------------------------*/footer {
+  color: #dcd2be;
+}
+footer h4 {
+  color: #fff;
+}
+footer a {
+  color: #cb5432;
+}
+footer a:hover {
+  color: #fff;
+}
