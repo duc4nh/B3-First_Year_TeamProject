@@ -15,7 +15,10 @@
     $description = $row['description'];
     $category_id = $row['category_id'];
     $picture = $row['picture'];
+    $views = $row['views'];
   }
+  $views += 1;
+  mysql_query("UPDATE items  SET views = '$views' WHERE item_id = '$item_id'");
   if($picture == NULL)
     $picture = 'http://www.worldofchemicals.com/Woclite/tmp/chem/no_image.gif';
     
@@ -30,6 +33,7 @@
   {
     $category_name = $row['category_name'];
   }
+
 ?>
   
   <!-- Main body for page -->
@@ -102,7 +106,7 @@
       </div>
       <div id="profile_wanted_items">
         <h4>User wishlist</h4>
-        This is the list of products <a href="index.html"> Chris Johnson</a> is looking for:
+        This is the list of products <a href="userpage.php?id=<?php echo $user_id; ?>"> <?php echo $user_name." ".$user_last_name; ?></a>  is looking for:
         <br />
         <ul>
           <li><a href="index.html">product 1</a>
