@@ -1,47 +1,60 @@
-<html>
-<head>
-<title> register </title>
-</head>
-
-<body>
+<!-- header and menu left -->
+<?php include('header_menuleft.php'); ?>
+  
+  <!-- Main body for page -->
+  <div id="body">
+    <div id="top_search">
+       <input class="search_box" type="text"><input class="search_button" value="SEARCH" type="submit"/>
+    </div>
+   
+  </div>
+  
 <?php
 $email = $_POST['regemail'];
 $pass1 = $_POST['regpass1'];
 $pass2 = $_POST['regpass2'];
+$firstname = $_POST['refirstname'];
+$lastname = $_POST['relastname'];
 
 include('config.php');
 $result = mysql_query("SELECT * FROM users WHERE email = '$email' ");
 $numrows = mysql_num_rows($result);
 if(!preg_match("~^(\w|\\-|\\.){1,}@(([a-z]|[A-Z]|\\-)*\\.?)*\\.([a-z]|[A-Z]|\\-){1,4}$~", $email))
 {
-  echo "Your e-mail is invalid";
+  echo "<h2>Sorry. Your e-mail is invalid</h2>";
+  echo "Click <a href='registerForm.php'>here</a> to try again.";
 }
 
 else 
   if($pass1!=$pass2)
   {
-    echo "Passwords do not match";
+    echo "<h2>Sorry. Passwords do not match</h2>";
+    echo "Click <a href='registerForm.php'>here</a> to try again.";
   }
   
   else 
-  {
     if($numrows != 0)
     {
-      echo "User email is already in use";
+      echo "<h2>Sorry. User email is already in use.</h2>";
+      echo "Click <a href='registerForm.php'>here</a> to try again.";
     }
-  
+    
     else
-    {
-
+      if (!preg_match('/^[a-zA-Z\" "]*$/', $firstname) || !preg_match('/^[a-zA-Z\" "]*$/', $lastname))
+      {
+        echo "<h2>Your input name is not valid.</h2>" ;
+        echo "Click <a href='registerForm.php'>here</a> to try again.";
+      }
       
-
-      mysql_query("INSERT into users (email, password) values ('$email','$pass1')") or die (mysql_error());
-
-      echo "<h1>you have registered sucessfully</h1>";
-      echo "<a href='index.php'>go to login page</a>";
-
-    }
-  }
+      else
+      {
+        mysql_query("INSERT into users (email, password, name, last_name) values('$email','$pass1','$firstname','$lastname')") or die (mysql_error());
+        echo "<h2>Thank you!!! You have registered sucessfully</h2>";
+        echo "Click here to go back to the <a href='index.php'>Index Page</a>.";
+      }
 ?>
-</body>
-</html>
+  
+  <!-- Main body for page ends -->
+  
+<!-- Footer information -->
+<?php include('footer.php'); ?>

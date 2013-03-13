@@ -1,6 +1,10 @@
 <!-- header and menu left -->
 <?php include('header_menuleft.php'); 
   $item_id = $_GET['id'];
+<<<<<<< HEAD
+
+=======
+>>>>>>> 06ff0fceb210dbed2a2098016fa4374b44adce59
   include('config.php');
   $query = mysql_query("SELECT * FROM items WHERE item_id = '$item_id' ");
   while ($row = mysql_fetch_assoc($query)) 
@@ -88,7 +92,8 @@
       </div> 
       <div id="item_trade">
         <button type="submit" name="send_mess" />Trade</button>
-        <button type="submit" name="send_mess" />Add to wishlist</button>
+
+        <a href="wishList.php?id=<?php echo $item_id;?>"><button>Add to wishlist</button></a>
       </div>
       <br><br>
       <div id="description"><h4>Description</h4>
