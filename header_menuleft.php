@@ -206,6 +206,6 @@ echo "<div class='prod_box_left'>
 </div>   
 </div>
 
-<div id="body">
+<div id="main_body">
 
 <!-- Main body for page -->

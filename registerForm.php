@@ -3,7 +3,7 @@
   
   <!-- Main body for page -->
 
-</br></br></br>
+</br>
 <h3>Welcome to the registration page</h3>
 Please fill the blanks below</br></br>
 

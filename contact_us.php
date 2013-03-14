@@ -2,8 +2,6 @@
 <?php include('header_menuleft.php'); ?>
   
   <!-- Main body for page -->
-  
-  </br></br>
   <fieldset>
     <legend><h2>Contact Us</h2></legend>
   <p></br>Group B3 - Class of 2015 - University Of Manchester</p>

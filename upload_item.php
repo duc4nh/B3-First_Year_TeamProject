@@ -83,8 +83,6 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
   
   <!-- Main body for page -->
 
-        </br>
-        </br>
       <?php
       if(!$_SESSION) 
       {

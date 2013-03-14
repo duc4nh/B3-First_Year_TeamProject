@@ -2,8 +2,7 @@
 <?php include('header_menuleft.php'); ?>
   
   <!-- Main body for page -->
-  
-  </br></br>
+
   <fieldset style="width:700px">
     <legend><h2>About Us</h2></legend>
 </br></br>  
