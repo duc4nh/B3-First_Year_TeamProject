@@ -117,17 +117,30 @@
                 <div class="fb-comments" data-href="http://rtd.lt/fbcomments/?id=<?php echo $item_id;?>" data-width="675" data-num-posts="10"></div>
 
       </div>
+      
       <div id="profile_wanted_items">
-        <h4>User wishlist</h4>
-        This is the list of products <a href="userpage.php?id=<?php echo $user_id; ?>"> <?php echo $user_name." ".$user_last_name; ?></a>  is looking for:
-        <br />
-        <ul>
-          <li><a href="index.html">product 1</a>
-          <li><a href="index.html">product 2</a>
-          <li><a href="index.html">product 3</a>
-          <li><a href="index.html">product 4</a>
-          <li><a href="index.html">product 5</a>
-        </ul>
+        <h4><a href="userpage.php?id=<?php echo $user_id; ?>"> <?php echo $user_name." ".$user_last_name; ?></a>  is looking for:</h4>
+        <br>
+     
+     <?  
+     
+     echo "<ul>"; 
+     $query3 = mysql_query("SELECT * FROM items");
+     while ($row = mysql_fetch_assoc($query3)) 
+     {
+              $item_id_togo = $row['item_id'];
+              $user_id_togo = $row['user_id'];
+              $status = $row['status'];
+              $type = $row['type'];
+              $name = $row['name'];
+                    if($status == 1 && $type == 1 && $user_id == $user_id_togo && $item_id != $item_id_togo)
+                    {
+                        echo "<li><a href='item_page.php?id=$item_id_togo'>$name</a>";
+                    }
+     }
+     
+    ?>
+	
       </div>
 
 
