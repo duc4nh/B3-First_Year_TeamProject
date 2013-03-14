@@ -27,9 +27,7 @@
     </div>
     <div id="login_top">
       <?php
-         echo "<img height='30' weight='30' src='".$_SESSION['picture']."' >";
-         echo "Hello, ".$_SESSION['name']." ".$_SESSION['last_name']."!<br>";
-         echo "<a href='logout.php'>Log out!</a>";
+         echo "<br>Welcome to MyUniTrader !";
       ?>
     </div>
     
