@@ -29,7 +29,7 @@
 					<?=stripslashes(substr($info['description'],0,150));?>
 				</div>
 				<div class="item_in_list_price">
-					<?=stripslashes(substr($info['price'],0,150));?>
+					<?=stripslashes(substr($info['price'],0,150));?> &#163;
 				</div>				
 			</div>
 		 <? } 
