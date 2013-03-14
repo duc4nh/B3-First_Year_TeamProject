@@ -7,21 +7,20 @@
       <input class="search_box" type="text"><input class="search_button" value="SEARCH" type="submit"/>
     </div>
   
-  </br>
-  <h2>About Us</h2>
-  <p>Group B3 - Class of 2015 - University Of Manchester</p>
-  </br>
+  </br></br>
+  <fieldset style="width:700px">
+    <legend><h2>About Us</h2></legend>
+</br></br>  
+<h4>Who are we</h4>
+</br><p>We are first year students, group B3 from University of Manchester, School of
+Computer Science.</p>
+</br><h4>What we do</h4>
+</br><p>The current website is our First Year Tem Project developed during 6 months of work.</p>
+</br><h4>What is our project about</h4>
+</br><p>MyUniTrader is a website developed for students which enables them to trade books, clothes, devices etc.</p>
+
   
-  <ul>
-    <li>Karolis Skripka
-    <li>Duc Anh
-    <li>Ali Safarli
-    <li>Vlad Berianu
-    <li>Eugene Varghin
-    <li>Giorgos Taf
-    <li>Lorin Patrick Nicolae
-  </ul>
-  
+  </br></fieldset>  
   </div>
 
   <!-- Main body for page ends -->

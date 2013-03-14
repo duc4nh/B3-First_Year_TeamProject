@@ -1,17 +1,18 @@
 <?php
+
 include('header_menuleft.php'); 
 echo "<div id='body'>
     <div id='top_search'>
       <input class='search_box' type='text'><input class='search_button' value='SEARCH' type='submit'/>
     </div>" ;
-session_start();
+
 $email = $_POST['email'];
 $password = $_POST['password'];
 
 if($email && $password)
 {
-  $connect = mysql_connect("ramen.cs.man.ac.uk", "12_COMP10120_B3", "jIho9xRbbSbPvcIC") or die ("Could not connect!");
-  mysql_select_db("12_COMP10120_B3", $connect) or die("Could not find db!");
+  include('config.php'); 
+
   
   $query = mysql_query("SELECT * FROM users WHERE email = '$email' ");
   $numrows = mysql_num_rows($query);

@@ -8,18 +8,8 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
 	$category = escape_value($_POST['category']);
 	$description = escape_value($_POST['description']);
 	$price = escape_value($_POST['price']);	
-	if(empty($type))
-		$errors[] = "Please enter type<br>";
-	if(empty($item_name))
-		$errors[] = "Please enter item name<br>";
-	if(empty($category))
-		$errors[] = "Please enter category<br>";
-	if(empty($description))
-		$errors[] = "Please enter description<br>";
-	if(empty($price))
-		$errors[] = "Please enter price<br>";
-	if(!is_numeric($price))
-		$errors[] = "Price has to be a number<br>";
+	
+		
 
 	// if no errors, deal with upload
 	if(!is_array($errors))
@@ -48,31 +38,14 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
 		include_once('config.php');
 		$dateNow = date("Y-m-d H:i:s", time());
 		$dateLater = date("Y-m-d H:i:s", time() + (21 * 24 * 60 * 60));
-		$query = "INSERT INTO `items` (
-					`user_id` ,
-					`creation_date` ,
-					`expiration_date` ,
-					`price` ,
-					`status` ,
-					`type` ,
-					`name` ,
-					`description` ,
-					`picture` ,
-					`category_id`
-					) VALUES (
-					'{$_SESSION["user_id"]}', 
-					'{$dateNow}', 
-					'{$dateLater}',
-					'{$price}',
-					'1', 
-					'{$type}', 
-					'{$item_name}', 
-					'{$description}', 
-					'{$file}', 
-					'{$category}')";
+		$query = " UPDATE `items` 
+		           SET `name` = '{$item_name}', `category_id`='{$category}',
+			       `description`='{$description}',
+			       `picture`='{$file}', `price`='{$price}', `type`='{$type}'
+			   WHERE `item_id`='2'";
+		
 		mysql_query($query);
-		$id = mysql_insert_id();
-		$message = "Succesfully inserted you can view you item <a href='item_page.php?id={$id}'>Here</a>";
+		$message = "Succesfully updated, you can view you item <a href='item_page.php?id=2'>Here</a>";
 	} // insert if
 
 } //if
@@ -98,8 +71,13 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
 	echo $message;
 	}else{
       ?>
-<?php include_once('config.php'); ?>
-        <h3>Upload Your Item</h3></br>
+<?php include_once('config.php');
+  $qry = mysql_query("SELECT * FROM `items` WHERE `item_id` = '2'");
+  if (mysql_numrows($qry) != 0)
+  {
+    $data = mysql_fetch_array($qry);
+  }?>
+        <h3>Edit Item</h3></br>
 
         Please fill the blanks below</br>
         </br>
@@ -121,14 +99,14 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
 
             <td width="1%">Type: </td>
               <td><select name="type">
-  		    <option value="1" <?if($_POST["type"] == 1) echo 'selected="selected"'; ?>>I am looking for this item</option>
-	     	    <option value="2" <?if($_POST["type"] == 2) echo 'selected="selected"'; ?>>I want to trade this item</option>
+  		    <option value="1" <?if($data['type'] == 1) echo 'selected="selected"'; ?>>I am looking for this item</option>
+	     	    <option value="2" <?if($data['type'] == 2) echo 'selected="selected"'; ?>>I want to trade this item</option>
 		</select>
 			  </td>
             </tr><tr></tr>
             <tr>
             <td width="1%">Item name: </td>
-              <td><input type="text" name="item_name" value="<?=stripslashes($_POST["item_name"]);?>"></td>
+              <td><input type="text" name="item_name" value="<?echo $data['name']?>"></td>
             </tr><tr></tr>
             <tr>
               <td width="1%">Item Category:</td>
@@ -147,7 +125,7 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
             </tr><tr></tr>
             <tr>
               <td width="1%">Description:</td>
-              <td><textarea name="description" rows="8" cols="36"><?=stripslashes($_POST["description"]);?></textarea></td>
+              <td><textarea name="description" rows="8" cols="36"><? echo $data['description'];?></textarea></td>
             </tr><tr></tr>
             <tr>
               <td width="1%">Upload Image:</td>
@@ -155,10 +133,10 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
             </tr><tr></tr>
             <tr>
               <td width="1%">Price:</td>
-              <td><input type="text" name="price" value="<?=stripslashes($_POST["price"]);?>"></td>
+              <td><input type="text" name="price" value="<? echo $data['price']?>" ></td>
             <tr>
               <td>&nbsp;</td>
-              <td><button type="submit" />     Submit      </button></td>
+              <td><button type="submit" />     Edit      </button></td>
             </tr><tr></tr>
           </table>
         </br></fieldset>  
