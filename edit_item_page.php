@@ -58,8 +58,6 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
   
   <!-- Main body for page -->
 
-        </br>
-        </br>
       <?php
       if(!$_SESSION) 
       {
@@ -140,8 +138,9 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
           </table>
         </br></fieldset>  
         </form>
+    </div>
 <? }// closing else ?>
-      </div>
+      
 
 
   <!-- Main body for page ends -->
