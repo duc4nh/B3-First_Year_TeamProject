@@ -112,7 +112,7 @@
       <br>
       <br>
       <div id="item_comments">
-        <h4>Comments</h4>
+        <h4>Comments about this Item</h4>
   
                 <div class="fb-comments" data-href="http://rtd.lt/fbcomments/?id=<?php echo $item_id;?>" data-width="675" data-num-posts="10"></div>
 
