@@ -45,8 +45,7 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
 			   WHERE `item_id`='2'";
 		
 		mysql_query($query);
-		$id = mysql_insert_id();
-		$message = "Succesfully updated, you can view you item <a href='item_page.php?id={$id}'>Here</a>";
+		$message = "Succesfully updated, you can view you item <a href='item_page.php?id=2'>Here</a>";
 	} // insert if
 
 } //if
@@ -100,8 +99,8 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
 
             <td width="1%">Type: </td>
               <td><select name="type">
-  		    <option value="1" <?if($_POST["type"] == 1) echo 'selected="selected"'; ?>>I am looking for this item</option>
-	     	    <option value="2" <?if($_POST["type"] == 2) echo 'selected="selected"'; ?>>I want to trade this item</option>
+  		    <option value="1" <?if($data['type'] == 1) echo 'selected="selected"'; ?>>I am looking for this item</option>
+	     	    <option value="2" <?if($data['type'] == 2) echo 'selected="selected"'; ?>>I want to trade this item</option>
 		</select>
 			  </td>
             </tr><tr></tr>

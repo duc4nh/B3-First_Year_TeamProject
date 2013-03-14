@@ -66,7 +66,7 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
 					'{$price}',
 					'1', 
 					'{$type}', 
-					'{$name}', 
+					'{$item_name}', 
 					'{$description}', 
 					'{$file}', 
 					'{$category}')";
