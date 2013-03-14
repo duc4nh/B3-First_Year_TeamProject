@@ -56,8 +56,19 @@
         <br/>
         <div id="user_contact">
           <h5>Owner: <a href="index.html"><?php echo $user_name." ".$user_last_name; ?> </a></h5>
-          <button type="submit" name="send_mess" />Send message</button>
-        </div>
+          <button type="submit" name="send_mess" />Send message</button></br>
+          <?
+      include_once('functions.php');
+      $qry = mysql_query("SELECT * FROM `items` WHERE `item_id` = '$item_id'");
+      if (mysql_num_rows($qry) != 0)
+      {
+        $data = mysql_fetch_array($qry); 
+      }?>
+	
+	<?php if ($data['user_id'] == $_SESSION['user_id']) : ?>
+	   <a href="edit_item_page.php?id=<?php echo $item_id;?>"><button>Edit item</button></a>	 
+	<?php endif; ?>	   
+	</div>
       </div>
       <div id="item_title">
         <b>Title:</b>  <?php echo $name; ?>
@@ -89,7 +100,10 @@
 
         <a href="wishList.php?id=<?php echo $item_id;?>"><button>Add to wishlist</button></a>
       </div>
-      <br><br>
+      
+                 
+          
+      <br><br><br>
       <div id="description"><h4>Description</h4>
 
         <p><?php echo $description; ?></p>

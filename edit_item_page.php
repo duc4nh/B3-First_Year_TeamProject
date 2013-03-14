@@ -1,5 +1,6 @@
 <?php 
 session_start();
+$item_id = $_GET['id'];
 if(!empty($_POST) AND !empty($_SESSION['email']))
 {
 	include('functions.php');
@@ -42,10 +43,11 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
 		           SET `name` = '{$item_name}', `category_id`='{$category}',
 			       `description`='{$description}',
 			       `picture`='{$file}', `price`='{$price}', `type`='{$type}'
-			   WHERE `item_id`='2'";
+			   WHERE `item_id`='$item_id'";
 		
 		mysql_query($query);
-		$message = "Succesfully updated, you can view you item <a href='item_page.php?id=2'>Here</a>";
+		$message = "Succesfully updated, you can view you item <a
+		href='item_page.php?id=$item_id'>Here</a>";
 	} // insert if
 
 } //if
@@ -69,7 +71,7 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
 	}else{
       ?>
 <?php include_once('config.php');
-  $qry = mysql_query("SELECT * FROM `items` WHERE `item_id` = '2'");
+  $qry = mysql_query("SELECT * FROM `items` WHERE `item_id` = '$item_id'");
   if (mysql_numrows($qry) != 0)
   {
     $data = mysql_fetch_array($qry);
