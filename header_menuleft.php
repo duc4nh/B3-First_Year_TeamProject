@@ -80,7 +80,7 @@
 			  } ?>                         
                          <li><a href="about_us.php" class="nav5">About Us </a></li>
                          <li class="divider"></li>
-                         <li><a href="about_us.php" class="nav6">Contact</a></li>
+                         <li><a href="contact_us.php" class="nav6">Contact Us</a></li>
                          <li class="divider"></li>
                          <?php if($_SESSION) {
 
