@@ -63,13 +63,8 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
 <!-- header and menu left -->
 <?php include('header_menuleft.php'); ?>
   
-  <!-- Main body for page -->
-  <div id="body">
-    <div id="top_search">
-      <input class="search_box" type="text"><input class="search_button" value="SEARCH" type="submit"/>
-    
-        </br>
-        </br>
+      </br>
+      </br>
       <?php
       if(!$_SESSION) 
       {
@@ -160,9 +155,7 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
         </form>
 <? }// closing else ?>
       </div>
-    </div>
-   
-  </div>
+
 
   <!-- Main body for page ends -->
   

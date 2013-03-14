@@ -1,10 +1,6 @@
 <?php
 
 include('header_menuleft.php'); 
-echo "<div id='body'>
-    <div id='top_search'>
-      <input class='search_box' type='text'><input class='search_button' value='SEARCH' type='submit'/>
-    </div>" ;
 
 $email = $_POST['email'];
 $password = $_POST['password'];
@@ -48,15 +44,14 @@ if($email && $password)
   }
   else
   {
-    die ("The user does not exist!");
+    echo "The user does not exist!";
   }
 
 
 }
 else
 {
-  die("Please enter email and password!");
+  echo "Please enter email and password!";
 }
-echo "</div>";
 include('footer.php');
 ?>

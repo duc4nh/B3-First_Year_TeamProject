@@ -30,11 +30,7 @@
   js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
   fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));</script>
-  <div id="body">
-    <div id="top_search">
-      <input class="search_box" type="text"><input class="search_button" value="SEARCH" type="submit"/>
-    </div>
-    
+   
     <div id="item_page">
       <div id="left_item">
         <div id="profile_pic">
@@ -114,8 +110,6 @@
       </div>
 
     </div>
-   
-  </div>
 
   <!-- Main body for page ends -->
   

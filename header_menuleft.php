@@ -195,8 +195,17 @@ echo "<div class='prod_box_left'>
   ?>  
   </div>
 
-  
-   
-  
-  
   <!-- Menu ends -->
+  
+
+<div id="body">
+<div id="top_search">
+<form method="post" action="search.php">
+<input class="search_box" type="text" name="search"><input class="search_button" value="SEARCH" type="submit"/>
+</form>
+</div>   
+</div>
+
+<div id="body">
+
+<!-- Main body for page -->

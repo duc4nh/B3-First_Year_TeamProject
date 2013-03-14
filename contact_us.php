@@ -2,10 +2,6 @@
 <?php include('header_menuleft.php'); ?>
   
   <!-- Main body for page -->
-  <div id="body">
-    <div id="top_search">
-      <input class="search_box" type="text"><input class="search_button" value="SEARCH" type="submit"/>
-    </div>
   
   </br></br>
   <fieldset>
@@ -33,7 +29,6 @@
   </br>
   <p><b>Contact us on <a href="https://www.facebook.com/groups/B3">Facebook</a></b></p>
   </br></fieldset>  
-  </div>
 
   <!-- Main body for page ends -->
   

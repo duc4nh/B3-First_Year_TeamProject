@@ -1,10 +1,7 @@
 
 <?php 
 include('header_menuleft.php');
-echo "<div id='body'>
-    <div id='top_search'>
-      <input class='search_box' type='text'><input class='search_button' value='SEARCH' type='submit'/>
-    </div><br><br>" ;
+echo "<br><br>" ;
 
 include('config.php');
 
@@ -30,7 +27,6 @@ include('config.php');
     mysql_query("INSERT INTO wishlist (user_id, item_id) VALUES ('$user_id', '$item_id')");
     echo "Item added!";
   }
-echo "</div>";
 
 include('footer.php');
 ?>

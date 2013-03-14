@@ -38,7 +38,7 @@
 ?>
   
   <!-- Main body for page -->
-  <div id="body">
+
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -48,9 +48,6 @@
     fjs.parentNode.insertBefore(js, fjs);
      }(document, 'script', 'facebook-jssdk'));</script>
 
-    <div id="top_search">
-      <input class="search_box" type="text"><input class="search_button" value="SEARCH" type="submit"/>
-    </div>
     <div id="item_page">
       <div id="left_item">
         <div id="profile_pic">
@@ -121,8 +118,7 @@
 
 
     </div>
-   
-  </div>
+
 
   <!-- Main body for page ends -->
   

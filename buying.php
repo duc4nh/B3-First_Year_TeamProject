@@ -7,9 +7,7 @@ $user_id = $_SESSION['user_id'];
 
 
 echo " 
-      <div id='top_search'>
-      <input class='search_box' type='text'><input class='search_button' value='SEARCH' type='submit'/>
-    </div><table border='0'>
+<table border='0'>
 <tr>
 <th id='title_table'><h4>Name</h4></th>
     <th id='title_table'><h4>Created on</h4></th>
