@@ -154,8 +154,6 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
         </br></fieldset>  
         </form>
 <? }// closing else ?>
-      </div>
-
 
   <!-- Main body for page ends -->
   
