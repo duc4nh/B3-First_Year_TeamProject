@@ -4,17 +4,12 @@ include('header_menuleft.php');
 include('config.php'); 
 $user_id = $_SESSION['user_id'];
 
+?>
+ 
+<div class="wishlist_box_body">
+<h2>Wishlist</h2>
 
-
-echo " 
-<table border='0'>
-<tr>
-<th id='title_table'><h3>Items Wanted</h3></th>
-    <th id='title_table'><h3>Owner</h3></th>
-</tr>";
-
-
-
+<?php
 $query2 = mysql_query("SELECT * FROM wishlist WHERE user_id = '$user_id' "); 
     while ($row = mysql_fetch_assoc($query2)) 
          {
@@ -22,6 +17,7 @@ $query2 = mysql_query("SELECT * FROM wishlist WHERE user_id = '$user_id' ");
          
          
             $query3 = mysql_query("SELECT * FROM items WHERE item_id = '$item_id' ");
+            $endline_count=0;
             while ($row = mysql_fetch_assoc($query3)) 
             {
               $item_name_wish = $row['name'];
@@ -32,15 +28,33 @@ $query2 = mysql_query("SELECT * FROM wishlist WHERE user_id = '$user_id' ");
               {
                 $owner_name = $row['name'];
                 $owner_last_name = $row['last_name'];
+                $endline_count++;
+                echo "
+           <div class='prod_box'>
+             <div class='top_prod_box'></div>
+             <div class='center_prod_box'>            
+                  <div class='product_title'><a href='item_page.php?id=".$item_id."'>".$name."</a></div>
+                  <div class='created_by'>User: <span class='user'>".$owner_name." ".$owner_last_name."</span></div>
+            </div>
+            <div class='bottom_prod_box'></div>             
+</div>
+";
 
-                echo "<tr id='item_table'>
-                <td> <a href='item_page.php?id=".$item_id."'>".$item_name_wish."</a></td>
-                <td> <a href='userpage.php?id=".$owner_id."'>".$owner_name." ".$owner_last_name."</a></td>
-                </tr>";
+if($endline_count==4)
+{
+  $endline_count=0;
+  echo "<br>";
+}
               }
          
             }
      }
-echo "</table>";
+
+?>
+
+</div>
+
+<?php
+
 include('footer.php'); 
 ?>
