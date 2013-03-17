@@ -32,6 +32,7 @@
     </div>
     <div id="login_top">
       <?php
+    
       if(!$_SESSION) 
       {
         echo 
@@ -54,9 +55,27 @@
       }
       else
       {
-         echo "<img height='30' weight='30' src='".$_SESSION['picture']."' >";
-         echo "Hello, ".$_SESSION['name']." ".$_SESSION['last_name']."!<br>";
-         echo "<a href='logout.php'>Log out!</a>";
+      include('config.php');
+      $count = 0;
+      $user_id = $_SESSION['user_id'];
+      $queryy=mysql_query("SELECT * FROM Trade WHERE owner_view = '0' AND owner_id ='$user_id' OR bidder_view = '0' AND bidder_id ='$user_id'");
+      while($row = mysql_fetch_assoc($queryy))
+      {
+        $count++;
+      }
+              
+         
+         echo "<div id='notification'><img height='30' weight='30' src='".$_SESSION['picture']."' >";
+         echo "Hello, ".$_SESSION['name']." ".$_SESSION['last_name']."!
+              <ul>
+                <li class = 'notification-container'>
+                  <i class='icon-globe'><a href='offers.php'><img src='images/mail.png'/></a></i>
+                  <span class='notification-counter'>".$count."</span>
+                </li>
+              </ul><br>
+               ";
+         echo "<a href='logout.php'>Log out!</a></div>";
+
       }
      ?>
     </div>
