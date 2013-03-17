@@ -66,7 +66,7 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
 					'{$price}',
 					'1', 
 					'{$type}', 
-					'{$name}', 
+					'{$item_name}', 
 					'{$description}', 
 					'{$file}', 
 					'{$category}')";
@@ -82,12 +82,7 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
 <?php include('header_menuleft.php'); ?>
   
   <!-- Main body for page -->
-  <div id="body">
-    <div id="top_search">
-      <input class="search_box" type="text"><input class="search_button" value="SEARCH" type="submit"/>
-    
-        </br>
-        </br>
+
       <?php
       if(!$_SESSION) 
       {
@@ -119,7 +114,7 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
           <table width="100%" border="0" cellpadding="0" cellspacing="2">
             <tr>
 
-            <td width="1%">Type: </td>
+            <td width="30%">Type: </td>
               <td><select name="type">
   		    <option value="1" <?if($_POST["type"] == 1) echo 'selected="selected"'; ?>>I am looking for this item</option>
 	     	    <option value="2" <?if($_POST["type"] == 2) echo 'selected="selected"'; ?>>I want to trade this item</option>
@@ -127,11 +122,11 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
 			  </td>
             </tr><tr></tr>
             <tr>
-            <td width="1%">Item name: </td>
+            <td>Item name: </td>
               <td><input type="text" name="item_name" value="<?=stripslashes($_POST["item_name"]);?>"></td>
             </tr><tr></tr>
             <tr>
-              <td width="1%">Item Category:</td>
+              <td>Item Category:</td>
               <td>
               <select name="category">
 		<?
@@ -146,15 +141,15 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
               </td>
             </tr><tr></tr>
             <tr>
-              <td width="1%">Description:</td>
+              <td>Description:</td>
               <td><textarea name="description" rows="8" cols="36"><?=stripslashes($_POST["description"]);?></textarea></td>
             </tr><tr></tr>
             <tr>
-              <td width="1%">Upload Image:</td>
+              <td>Upload Image:</td>
               <td><input type="file" name="file" size="40"></td>
             </tr><tr></tr>
             <tr>
-              <td width="1%">Price:</td>
+              <td>I think this item is worth:</td>
               <td><input type="text" name="price" value="<?=stripslashes($_POST["price"]);?>"></td>
             <tr>
               <td>&nbsp;</td>
@@ -165,10 +160,6 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
         </form>
 <? }// closing else ?>
       </div>
-    </div>
-   
-  </div>
-
   <!-- Main body for page ends -->
   
 <!-- Footer information -->

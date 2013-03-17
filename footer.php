@@ -1,3 +1,5 @@
+</div>
+
 <!-- Footer information -->
    <div class="footer">
    
@@ -16,7 +18,6 @@
    
    </div>   
   <!-- Footer ends -->
-  </div>  
 <!-- wrapper end -->
 </body>
 </html> 

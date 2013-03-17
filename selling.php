@@ -4,23 +4,16 @@ include('header_menuleft.php');
 include('config.php'); 
 $user_id = $_SESSION['user_id'];
 
+?>
+     <div class="selling_box_body">
+     <h2>Selling items</h2>
+
+<?php
 
 
-echo " 
-      <div id='top_search'>
-      <input class='search_box' type='text'><input class='search_button' value='SEARCH' type='submit'/>
-    </div><table border='0'>
-<tr>
-<th id='title_table'><h4>Name</h4></th>
-    <th id='title_table'><h4>Created on</h4></th>
-    <th id='title_table'><h4>Expires on</h4></th>
-    <th id='title_table'><h4>Price £</h4></th>
-    <th id='title_table'><h4>Owner</h4></th>
-    <th id='title_table'><h4>Views</h4></th>
-    <th id='title_table'><h4>Category</h4></th>
-</tr>";
 
      $query3 = mysql_query("SELECT * FROM items");
+     $endline_count=0;
      while ($row = mysql_fetch_assoc($query3)) 
      {           $item_id = $row['item_id'];
                  $user_id = $row['user_id'];
@@ -44,20 +37,39 @@ echo "
                   
                     if($status == 1 && $type == 2)
                     {
-                        echo "<tr id='item_table'>
-                        <td> <a href='item_page.php?id=".$item_id."'>".$name."</a></td>
-                        <td> ".$creation_date ."</td>
-                        <td> ".$expiration_date ."</td>
-                        <td> ".$price."</td>
-                        <td> ".$owner_name." ".$owner_last_name."</td>
-                        <td> ".$views."</a></td>
-                        <td> ".$category_name."</a></td>
+$endline_count++;
+echo "
 
-                        </tr>";
+<div class='prod_box'>
+            <div class='top_prod_box'></div>
+            <div class='center_prod_box'>            
+                 <div class='product_title'><a href='item_page.php?id=".$item_id."'>".$name."</a></div>
+                 <div class='creation_date'>Created: <span class='creation'>".$creation_date ."</span></div> 
+                 <div class='expiration_date'>Expires: <span class='expiration'>".$expiration_date ."</span></div>
+                 <div class='price_set'>Price: <span class='price'>".$price ."</span></div> 
+                 <div class='created_by'>Owner: <span class='user'>".$owner_name." ".$owner_last_name."</span></div>
+                 <div class='views_product'>Views: <span class='views'>".$views ."</span></div>  
+                 <div class='category_name'>Category: <span class='category'>".$category_name ."</span></div> 
+            </div>
+            <div class='bottom_prod_box'></div>             
+</div>
+";
+
+if($endline_count==4)
+{
+  $endline_count=0;
+  echo "<br>";
+}
                     }
                 }
               }
      }
-echo "</table>";
+
+?>
+
+</div>
+
+<?php
+
 include('footer.php'); 
 ?>

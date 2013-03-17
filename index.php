@@ -2,10 +2,7 @@
 <?php include('header_menuleft.php'); ?>
   
   <!-- Main body for page -->
-  <div id="body">
-    <div id="top_search">
-      <input class="search_box" type="text"><input class="search_button" value="SEARCH" type="submit"/>
-    </div>
+  
     <div class="index_box">
   	<div class="index_box_body">
 	  <?php include('slider.php'); ?>
@@ -157,7 +154,6 @@ if($endline_count==2)
 <!-- End 2 column -->
 	
     </div>	
-    </div>
 
   <!-- Main body for page ends -->
   

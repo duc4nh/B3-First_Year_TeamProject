@@ -38,7 +38,7 @@
 ?>
   
   <!-- Main body for page -->
-  <div id="body">
+
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -48,9 +48,6 @@
     fjs.parentNode.insertBefore(js, fjs);
      }(document, 'script', 'facebook-jssdk'));</script>
 
-    <div id="top_search">
-      <input class="search_box" type="text"><input class="search_button" value="SEARCH" type="submit"/>
-    </div>
     <div id="item_page">
       <div id="left_item">
         <div id="profile_pic">
@@ -58,6 +55,7 @@
         </div>
         <br/>
         <div id="user_contact">
+<<<<<<< HEAD
           <?php
           if($type==2)
             echo "
@@ -68,6 +66,22 @@
           ?>
           <button type="submit" name="send_mess" />Send message</button>
         </div>
+=======
+          <h5>Owner: <a href="index.html"><?php echo $user_name." ".$user_last_name; ?> </a></h5>
+          <button type="submit" name="send_mess" />Send message</button></br>
+          <?
+      include_once('functions.php');
+      $qry = mysql_query("SELECT * FROM `items` WHERE `item_id` = '$item_id'");
+      if (mysql_num_rows($qry) != 0)
+      {
+        $data = mysql_fetch_array($qry); 
+      }?>
+	
+	<?php if ($data['user_id'] == $_SESSION['user_id']) : ?>
+	   <a href="edit_item_page.php?id=<?php echo $item_id;?>"><button>Edit item</button></a>	 
+	<?php endif; ?>	   
+	</div>
+>>>>>>> dedbd64b7aab352c4b003d3322e49233d8b1deaa
       </div>
       <div id="item_title">
         <b>Title:</b>  <?php echo $name; ?>
@@ -103,7 +117,10 @@
         <a href='wishList.php?id=".$item_id."'><button>Add to wishlist</button></a>";
        ?>
       </div>
-      <br><br>
+      
+                 
+          
+      <br><br><br>
       <div id="description"><h4>Description</h4>
 
         <p><?php echo $description; ?></p>
@@ -117,23 +134,40 @@
                 <div class="fb-comments" data-href="http://rtd.lt/fbcomments/?id=<?php echo $item_id;?>" data-width="675" data-num-posts="10"></div>
 
       </div>
+      
       <div id="profile_wanted_items">
-        <h4>User wishlist</h4>
-        This is the list of products <a href="userpage.php?id=<?php echo $user_id; ?>"> <?php echo $user_name." ".$user_last_name; ?></a>  is looking for:
-        <br />
-        <ul>
-          <li><a href="index.html">product 1</a>
-          <li><a href="index.html">product 2</a>
-          <li><a href="index.html">product 3</a>
-          <li><a href="index.html">product 4</a>
-          <li><a href="index.html">product 5</a>
-        </ul>
+        <h4><a href="userpage.php?id=<?php echo $user_id; ?>"> <?php echo $user_name." ".$user_last_name; ?></a>  is looking for:</h4>
+        <br>
+     
+     <?  
+     
+     echo "<ul>"; 
+     $query3 = mysql_query("SELECT * FROM items");
+     while ($row = mysql_fetch_assoc($query3)) 
+     {
+              $item_id_togo = $row['item_id'];
+              $user_id_togo = $row['user_id'];
+              $status = $row['status'];
+              $type = $row['type'];
+              $name = $row['name'];
+                    if($status == 1 && $type == 1 && $user_id == $user_id_togo && $item_id != $item_id_togo)
+                    {
+                        echo "<li><a href='item_page.php?id=$item_id_togo'>$name</a>";
+                    }
+     }
+     
+    ?>
+	
       </div>
 
 
+<<<<<<< HEAD
   
    
   
+=======
+    </div>
+
 
   <!-- Main body for page ends -->
   

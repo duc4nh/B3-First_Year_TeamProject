@@ -99,7 +99,7 @@
 			  } ?>                         
                          <li><a href="about_us.php" class="nav5">About Us </a></li>
                          <li class="divider"></li>
-                         <li><a href="about_us.php" class="nav6">Contact</a></li>
+                         <li><a href="contact_us.php" class="nav6">Contact Us</a></li>
                          <li class="divider"></li>
                          <?php if($_SESSION) {
 
@@ -214,8 +214,17 @@ echo "<div class='prod_box_left'>
   ?>  
   </div>
 
-  
-   
-  
-  
   <!-- Menu ends -->
+  
+
+<div id="body">
+<div id="top_search">
+<form method="post" action="search.php">
+<input class="search_box" type="text" name="search"><input class="search_button" value="SEARCH" type="submit"/>
+</form>
+</div>   
+</div>
+
+<div id="main_body">
+
+<!-- Main body for page -->

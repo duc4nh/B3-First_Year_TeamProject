@@ -22,27 +22,15 @@
   ?>
 
   <!-- Main body for page -->
- 
-  <div id="body">
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=182540261879239";
-    fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));</script>
-
-    <script>
-      function send_mess()
-      {
-        window.open("message.php", "Send message!", "heigh = 500, weight = 300, location = no" );
-      }
-    </script>
-    <div id="top_search">
-      <input class="search_box" type="text"><input class="search_button" value="SEARCH" type="submit"/>
-    </div>
-    
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+   
     <div id="item_page">
       <div id="left_item">
         <div id="profile_pic">
@@ -50,11 +38,20 @@
         </div>
         <br/>
         <div id="user_contact">
-          <button type="submit" name="send_mess" onclick="send_mess()" />Send message</button>
-        </div>
+          <button type="submit" name="send_mess" />Send message</button>
+          <br>
+	  <br>
+	  
+	  <?php
+	  $local_id = $_GET['id'];
+	  $logged_id = $_SESSION['user_id'];
+	  if($local_id == $logged_id)
+	  echo "
+	  <a href=edit_profile.php><button>Edit your profile</button></a>" ;
+	  ?>
+	</div>
       </div>
       <div id="item_title">
-        <br><br>
         <h2><?php echo $name." ".$last_name; ?> </h2>
 	<div id="description"><h4>Description</h4>
 	<p><?php echo $description; ?></p>
@@ -63,7 +60,7 @@
 
 
 <div id="description">
-<table border="0">
+<table border="1">
   <tr>
     <th id="title_table"><h2>Items Wanted</h2></th>
     <th id="title_table"><h2>Item for Trading</h2></th>
@@ -109,14 +106,10 @@
 
       
       <div id="item_comments">
-
-        <h4>Comments</h4>
-        <div class="fb-comments" data-href="http://rtd.lt/fbcomments/?id=<?php echo $user_id;?>" data-width="675" data-num-posts="10"></div>
+       <div class="fb-comments" data-href="http://soba.cs.man.ac.uk/~berianv2/FOLDER/B3-First_Year_TeamProject/userpage.php?id=<?php echo $_SESSION['user_id'];?>" data-width="675" data-num-posts="10"></div>      
       </div>
 
     </div>
-   
-  </div>
 
   <!-- Main body for page ends -->
   

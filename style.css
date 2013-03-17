@@ -132,6 +132,13 @@ input:focus
   text-decoration:none;
   color: #000000;
 }
+
+#main_body{
+  margin-top: 30px;
+  margin-left: 10px;
+  float:left;
+}
+
 #body{
   margin-left: 10px;
   float:left;
@@ -465,3 +472,39 @@ color: #666666;
 .right_footer a:hover{
 text-decoration:underline;
 }
+/*---------------- Search ----------------------*/
+.item_in_list {
+  clear: both;
+  padding-top: 7px;
+  width: 722px;
+}
+.item_in_list_image {
+  float: left;
+  height: 150px;
+  width: 150px;
+}
+.item_in_list_description {
+  float: left;
+  padding-left: 11px;
+  width: 476px;
+}
+.item_in_list_price {
+  float: right;
+  width: 64px;
+}
+.item_in_list_name {
+  float: left;
+  padding-bottom: 5px;
+  padding-left: 11px;
+  width: 504px;
+}
+#all_items a{
+  text-decoration:none;
+  color: black;
+}
+
+
+
+
+
+

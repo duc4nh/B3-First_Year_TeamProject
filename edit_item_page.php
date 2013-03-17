@@ -1,5 +1,6 @@
 <?php 
 session_start();
+$item_id = $_GET['id'];
 if(!empty($_POST) AND !empty($_SESSION['email']))
 {
 	include('functions.php');
@@ -42,11 +43,11 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
 		           SET `name` = '{$item_name}', `category_id`='{$category}',
 			       `description`='{$description}',
 			       `picture`='{$file}', `price`='{$price}', `type`='{$type}'
-			   WHERE `item_id`='2'";
+			   WHERE `item_id`='$item_id'";
 		
 		mysql_query($query);
-		$id = mysql_insert_id();
-		$message = "Succesfully updated, you can view you item <a href='item_page.php?id={$id}'>Here</a>";
+		$message = "Succesfully updated, you can view you item <a
+		href='item_page.php?id=$item_id'>Here</a>";
 	} // insert if
 
 } //if
@@ -56,12 +57,7 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
 <?php include('header_menuleft.php'); ?>
   
   <!-- Main body for page -->
-  <div id="body">
-    <div id="top_search">
-      <input class="search_box" type="text"><input class="search_button" value="SEARCH" type="submit"/>
-    
-        </br>
-        </br>
+
       <?php
       if(!$_SESSION) 
       {
@@ -73,7 +69,7 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
 	}else{
       ?>
 <?php include_once('config.php');
-  $qry = mysql_query("SELECT * FROM `items` WHERE `item_id` = '2'");
+  $qry = mysql_query("SELECT * FROM `items` WHERE `item_id` = '$item_id'");
   if (mysql_numrows($qry) != 0)
   {
     $data = mysql_fetch_array($qry);
@@ -100,8 +96,8 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
 
             <td width="1%">Type: </td>
               <td><select name="type">
-  		    <option value="1" <?if($_POST["type"] == 1) echo 'selected="selected"'; ?>>I am looking for this item</option>
-	     	    <option value="2" <?if($_POST["type"] == 2) echo 'selected="selected"'; ?>>I want to trade this item</option>
+  		    <option value="1" <?if($data['type'] == 1) echo 'selected="selected"'; ?>>I am looking for this item</option>
+	     	    <option value="2" <?if($data['type'] == 2) echo 'selected="selected"'; ?>>I want to trade this item</option>
 		</select>
 			  </td>
             </tr><tr></tr>
@@ -142,11 +138,10 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
           </table>
         </br></fieldset>  
         </form>
-<? }// closing else ?>
-      </div>
     </div>
-   
-  </div>
+<? }// closing else ?>
+      
+
 
   <!-- Main body for page ends -->
   
