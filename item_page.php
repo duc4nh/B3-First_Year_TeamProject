@@ -58,7 +58,14 @@
         </div>
         <br/>
         <div id="user_contact">
-          <h5>Owner: <a href="index.html"><?php echo $user_name." ".$user_last_name; ?> </a></h5>
+          <?php
+          if($type==2)
+            echo "
+          <h5>Owner: <a href='userpage.php?id=".$user_id."'>".$user_name." ".$user_last_name."</a></h5>";
+          else
+            echo "
+          <h5>Requester: <a href='userpage.php?id=".$user_id."'>".$user_name." ".$user_last_name."</a></h5>";
+          ?>
           <button type="submit" name="send_mess" />Send message</button>
         </div>
       </div>
@@ -88,9 +95,13 @@
        
       </div> 
       <div id="item_trade">
-        <button type="submit" name="send_mess" />Trade</button>
-
-        <a href="wishList.php?id=<?php echo $item_id;?>"><button>Add to wishlist</button></a>
+       <?php
+       if($_SESSION('user_id') != $user_id)
+        echo "
+        <form action='trade_item.php?id=".$item_id."' ><button type='submit' />Trade</button></form>
+      
+        <a href='wishList.php?id=".$item_id."'><button>Add to wishlist</button></a>";
+       ?>
       </div>
       <br><br>
       <div id="description"><h4>Description</h4>
@@ -120,9 +131,9 @@
       </div>
 
 
-    </div>
+  
    
-  </div>
+  
 
   <!-- Main body for page ends -->
   
