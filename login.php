@@ -19,7 +19,7 @@
     <div id="top_selection">
 
       <?php
-      echo "Welcome! You have loged in!";
+      echo "Welcome!";
       ?>
     </div>
     <div id="logo">
@@ -215,23 +215,23 @@ if($email && $password)
       $_SESSION['description'] = $description;
       $_SESSION['picture'] = $picture;
       
-      echo "<br />You have logged in! <a href='userpage.php?id=".$user_id."'>Click here </a> to go to your profile! ";
+      echo "<br />You have logged in! <a href='userpage.php?id=".$user_id."'>Click here </a> to go to your profile!";
     }
     else
     {
-    	 echo "Incorrect password!";
+    	 echo "Incorrect password! <a href='index.php'>Click here </a> to go back to Home Page!";
     }
   }
   else
   {
-    echo "The user does not exist!";
+    echo "The user does not exist! <a href='index.php'>Click here </a> to go back to Home Page!";
   }
 
 
 }
 else
 {
-  echo "Please enter email and password!";
+  echo "Please enter email and password! <a href='index.php'>Click here </a> to go back to Home Page!";
 }
 include('footer.php');
 ?>
