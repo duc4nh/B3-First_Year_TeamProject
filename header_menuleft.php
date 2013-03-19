@@ -118,14 +118,14 @@
   <div id="menu">
     <h4 class="categories">CATEGORIES</h4>
     <ul>
-      <li><a href="index.html">Books</a>
-      <li><a href="index.html">Stationary</a>
-      <li><a href="index.html">Technology</a>
-      <li><a href="index.html">Music</a>
-      <li><a href="index.html">Games</a>
-      <li><a href="index.html">Fashion</a>
-      <li><a href="index.html">Kitchen</a>
-      <li><a href="index.html">Other</a>
+      <li><a href="items_by_category?id=1">Books</a>
+      <li><a href="items_by_category?id=2">Stationary</a>
+      <li><a href="items_by_category?id=3">Technology</a>
+      <li><a href="items_by_category?id=4">Music</a>
+      <li><a href="items_by_category?id=5">Games</a>
+      <li><a href="items_by_category?id=6">Fashion</a>
+      <li><a href="items_by_category?id=7">Kitchen</a>
+      <li><a href="items_by_category?id=8">Other</a>
     </ul>
 <?php
 include('config.php');
