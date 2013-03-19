@@ -127,15 +127,6 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
               <td><input type="text" name="phone_number" value="<?echo $data['phone_number'];?>"></td>
             </tr><tr></tr>
             <tr>
-	    
-	    <td width="1%">User status: </td>
-              <td><select name="status">
-  		    <option value="0" <?if($_POST["status"] == 0) echo 'selected="selected"'; ?>>Regular user</option>
-	     	    <option value="1" <?if($_POST["status"] == 1) echo 'selected="selected"'; ?>>Admin</option>
-		</select>
-			  </td>
-            </tr><tr></tr>
-            <tr>
             
 	    <td width="1%">Upload Image:</td>
               <td><input type="file" name="file" size="40"></td>
