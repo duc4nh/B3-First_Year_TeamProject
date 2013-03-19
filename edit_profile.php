@@ -144,6 +144,7 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
           </table>
         </br></fieldset>  
         </form>
+      </div>
 <? }// closing else ?>
 
   <!-- Main body for page ends -->
