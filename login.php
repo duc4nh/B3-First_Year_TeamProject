@@ -22,8 +22,6 @@ if($email && $password)
        $last_name = $row['last_name'];
        $description = $row['description'];
        $picture = $row['picture'];
-       if($picture == NULL)
-           $picture = 'http://www.worldofchemicals.com/Woclite/tmp/chem/no_image.gif';
     }
     if ($email == $dbemail && md5($password) == $dbpassword)
     {
