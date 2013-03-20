@@ -30,8 +30,8 @@ if (!preg_match('/^[a-zA-Z\" "]*$/', $firstname)
       else
       {
         mysql_query("INSERT into users (email, password, name, last_name) values('$email','$pass1','$firstname','$lastname')") or die (mysql_error());
-        echo "<h2>Thank you!!! You have registered sucessfully</h2>";
-        echo "Click here to go back to the <a href='index.php'>Index Page</a>.";
+        echo "<h2>Thank you!!! You have sucessfully registered</h2>";
+        echo "Please log in, on the top of the page";
       }
 ?>
   

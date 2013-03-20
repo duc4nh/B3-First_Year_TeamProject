@@ -28,7 +28,7 @@ Please fill the blanks below</br></br>
       <td>Re-type password:</td><td><input type="password" name="regpass2"><br></td>
       </tr><tr></tr>
       <tr>
-      <td><input type="submit" value="Submit"></td>
+      <td><input type="submit" value="Register"></td>
       </tr><tr></tr>
       </table></br>
     </fieldset>  

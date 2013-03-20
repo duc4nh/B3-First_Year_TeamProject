@@ -103,7 +103,7 @@
                          <li class="divider"></li>
                          <?php if($_SESSION) {
 
-                  echo  "<li><a href='upload_item.php' class='nav7'>Upload item</a></li>
+                  echo  "<li><a href='upload_item.php' class='nav7'>Add Item</a></li>
                          <li class='divider'></li>";
                          }
                          ?>

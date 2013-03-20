@@ -22,9 +22,15 @@ $query2 = mysql_query("SELECT * FROM wishlist WHERE user_id = '$user_id' ");
             {
               $item_name_wish = $row['name'];
               $owner_id = $row['user_id'];
-            
+              
+              $picture = $row['picture'];
+  
+              if($picture == NULL)
+                $picture='http://www.tiesummit.com/wp-content/uploads/2012/10/noimage.jpg';
+
+
               $query4 = mysql_query("SELECT * FROM users WHERE user_id = '$owner_id' ");
-              while ($row = mysql_fetch_assoc($query4)) 
+              while ($row = mysql_fetch_assoc($query4) && $endline_count < 10) 
               {
                 $owner_name = $row['name'];
                 $owner_last_name = $row['last_name'];
@@ -35,14 +41,14 @@ $query2 = mysql_query("SELECT * FROM wishlist WHERE user_id = '$user_id' ");
              <div class='center_prod_box'>            
                   <div class='product_title'><a href='item_page.php?id=".$item_id."'>".$name."</a></div>
                   <div class='created_by'>User: <span class='user'>".$owner_name." ".$owner_last_name."</span></div>
+                 <div class='product_img'><a href='item_page.php?id=".$item_id."'><img border='0' height='94' weight='94'  src='".$picture."'></a></div>
             </div>
             <div class='bottom_prod_box'></div>             
 </div>
 ";
 
-if($endline_count==4)
+if($endline_count % 4 == 0)
 {
-  $endline_count=0;
   echo "<br>";
 }
               }
