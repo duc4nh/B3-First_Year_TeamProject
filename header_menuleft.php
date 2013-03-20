@@ -89,10 +89,10 @@ if(basename($_SERVER["SCRIPT_NAME"]) == "index.php"){
       {
         $count++;
       }
-         if($picture == NULL)
+         if(empty($_SESSION['picture']))
            $picture='images/no_image.jpg';
          else
-    	   $picture="uploads/".$picture;     
+    	   $picture="uploads/".$_SESSION['picture'];     
          
          echo "<div id='notification'><img height='30' weight='30' src='".$picture."' >";
          echo "Hello, ".$_SESSION['name']." ".$_SESSION['last_name']."!
