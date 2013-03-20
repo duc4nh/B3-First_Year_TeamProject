@@ -63,9 +63,12 @@
       {
         $count++;
       }
-              
+         if($picture == NULL)
+           $picture='images/no_image.jpg';
+         else
+    	   $picture="uploads/".$picture;     
          
-         echo "<div id='notification'><img height='30' weight='30' src='".$_SESSION['picture']."' >";
+         echo "<div id='notification'><img height='30' weight='30' src='".$picture."' >";
          echo "Hello, ".$_SESSION['name']." ".$_SESSION['last_name']."!
               <ul>
                 <li class = 'notification-container'>
@@ -138,7 +141,9 @@ include('config.php');
       $price = $row['price'];
       $name = $row['name'];
       if($picture == NULL)
-        $picture='images/no_image.gif';
+        $picture='images/no_image.jpg';
+      else
+    	$picture="uploads/".$picture;
   }
   
   
@@ -197,8 +202,10 @@ $item3 = mysql_query("SELECT * FROM items ORDER BY views DESC LIMIT 1");
       $picture3 = $row['picture'];
       $price3 = $row['price'];
       $name3 = $row['name'];
-      if($picture3 == NULL)
-        $picture3='images/no_image.gif';
+      if($picture == NULL)
+        $picture='images/no_image.jpg';
+      else
+    	$picture="uploads/".$picture;
   }
 echo "<div class='prod_box_left'>
         	<div class='top_prod_box'></div>

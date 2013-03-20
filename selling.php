@@ -28,7 +28,10 @@ $user_id = $_SESSION['user_id'];
                  $picture = $row['picture'];
   
                  if($picture == NULL)
-                  $picture='http://www.tiesummit.com/wp-content/uploads/2012/10/noimage.jpg';
+                   $picture='images/no_image.jpg';
+	         else
+    		   $picture="uploads/".$picture;
+		  
 
 
               $query4 = mysql_query("SELECT * FROM users WHERE user_id = '$user_id' ");
@@ -50,11 +53,11 @@ echo "
             <div class='top_prod_box'></div>
             <div class='center_prod_box'>            
                  <div class='product_title'><a href='item_page.php?id=".$item_id."'>".$name."</a></div>
+		 <div class='product_img'><a href='item_page.php?id=".$item_id."'><img border='0' height='94' weight='94'  src='".$picture."'></a></div>
                  <div class='creation_date'>Created: <span class='creation'>".$creation_date ."</span></div> 
                  <div class='expiration_date'>Expires: <span class='expiration'>".$expiration_date ."</span></div>
                  <div class='price_set'>Price: <span class='price'>£".$price ."</span></div> 
                  <div class='created_by'>Owner: <span class='user'>".$owner_name." ".$owner_last_name."</span></div>
-                 <div class='product_img'><a href='item_page.php?id=".$item_id."'><img border='0' height='94' weight='94'  src='".$picture."'></a></div>
                  <div class='views_product'>Views: <span class='views'>".$views ."</span></div>  
                  <div class='category_name'>Category: <span class='category'>".$category_name ."</span></div> 
             </div>
