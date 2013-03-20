@@ -66,38 +66,46 @@
     <th id="title_table"><h2>Item for Trading</h2></th>
   </tr>
   <tr>
-    <td >
-<?php 
-  $limit_wish=0;
-  $limit_trade=0;
-  $query2 = mysql_query("SELECT * FROM wishlist WHERE user_id = '$user_id' "); 
-    while ($row = mysql_fetch_assoc($query2)) 
-         {
-           $item_id = $row['item_id'];
-         }
-         
-  $query3 = mysql_query("SELECT * FROM items WHERE item_id = '$item_id' ");
-     while ($row = mysql_fetch_assoc($query3)) 
-         {
-           $item_name_wish = $row['name'];
-           echo "<li id='item_table'><a href='index.html'>".$item_name_wish."</a>";
-           $limit_wish++;
-           if($limit_wish == 5)
-            break;
-         }
-  echo "</td>
-    <td>";
+    <td style="text-align:center;">
 
-  $query4 = mysql_query("SELECT * FROM items WHERE user_id = '$user_id' ");
-     while ($row = mysql_fetch_assoc($query4)) 
-         {
-           $item_name_trade = $row['name'];
-           echo "<li id='item_table'><a href='index.html'>".$item_name_trade."</a>";
-           $limit_trade++;
-           if($limit_trade == 5)
-            break;
-         }
-         ?>
+    <?  
+     echo "<ul>"; 
+     $query3 = mysql_query("SELECT * FROM items WHERE user_id = '$user_id' ");
+     while ($row = mysql_fetch_assoc($query3)) 
+     {
+              $item_id_togo = $row['item_id'];
+              $user_id_togo = $row['user_id'];
+              $status = $row['status'];
+              $type = $row['type'];
+              $name = $row['name'];
+                    if($status == 1 && $type == 1)
+                    {
+                        echo "<li><a href='item_page.php?id=$item_id_togo'>$name</a></li>";
+                    }
+     }
+     echo "</ul>"; 
+    ?>
+  
+    </td>
+    <td style="text-align:center;">
+
+    <?  
+     echo "<ul>"; 
+     $query3 = mysql_query("SELECT * FROM items WHERE user_id = '$user_id' ");
+     while ($row = mysql_fetch_assoc($query3)) 
+     {
+              $item_id_togo = $row['item_id'];
+              $user_id_togo = $row['user_id'];
+              $status = $row['status'];
+              $type = $row['type'];
+              $name = $row['name'];
+                    if($status == 1 && $type == 2)
+                    {
+                        echo "<li><a href='item_page.php?id=$item_id_togo'>$name</a></li>";
+                    }
+     }
+     echo "</ul>"; 
+    ?>
       
     </td>
   </tr>
