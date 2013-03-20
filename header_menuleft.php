@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
 <html >
 <head>
@@ -41,7 +42,7 @@ if(basename($_SERVER["SCRIPT_NAME"]) == "index.php"){
 <? } // slider ends **********************************************?>
 </head>
 <body>
-<?php session_start(); ?>
+
 <!-- Main holder to center page -->
 <div id="wrapper">
   <!-- Header information -->
@@ -63,7 +64,7 @@ if(basename($_SERVER["SCRIPT_NAME"]) == "index.php"){
     <div id="login_top">
       <?php
     
-      if(!$_SESSION) 
+      if(empty($_SESSION['name'])) 
       {
         echo 
       "<form name='login_form' action='login.php' method='post'>
