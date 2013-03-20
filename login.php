@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once("functions.php"); 
 
 $email = escape_value($_POST['email']);
@@ -7,7 +8,6 @@ $password = escape_value($_POST['password']);
 if($email && $password)
 {
   include('config.php'); 
-
   
   $query = mysql_query("SELECT * FROM users WHERE email = '$email' ");
   $numrows = mysql_num_rows($query);
