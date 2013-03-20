@@ -100,14 +100,21 @@
        <?php
       
 
+
        if($_SESSION['user_id'] != $user_id_i)
        { 
-        if($status == 1)
-        echo "
-        <a href='trade_item.php?id=".$item_id."' ><button>Trade</button></a>
+          if($status == 1)
+            echo "
+           <a href='trade_item.php?id=".$item_id."' ><button>Trade</button></a>
         
-        <a href='wishList.php?id=".$item_id."'><button>Add to wishlist</button></a>";
+           <a href='wishList.php?id=".$item_id."'><button>Add to wishlist</button></a>";
         }
+	else
+	{  
+	  echo "<a href='edit_item_page.php?id=".$item_id."'><button>Edit Item</button></a>";
+	  echo "<a href='delete_item.php?id=".$item_id."'><button>Delete Item</button></a>";
+	}
+
        ?>
       </div>
       <br><br>
