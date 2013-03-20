@@ -17,26 +17,23 @@ include('config.php');
 $result = mysql_query("SELECT * FROM users WHERE email = '$email' ");
 $numrows = mysql_num_rows($result);
  
-if(!is_array($errors))
-  {
-		if($_FILES['file']['name'] != "") { 	
-			$f = explode(".",$_FILES['file']['name']);
-			$ext = strtolower(end($f));
-			$goodExtensions = array('jpg','png','tiff','gif'); 
-			if(!in_array($ext,$goodExtensions)) $errors[] = 'File extension not allowed<br>';
-			if(in_array($ext, $goodExtensions)) {
-				$nameFile = md5(microtime()).".".$ext;   
-				if (!is_array($errors)) {  
-					if (move_uploaded_file($_FILES['file']['tmp_name'], "uploads/".$nameFile)) { 
-						$file = $nameFile;
-						  chmod("uploads/".$nameFile, 0644);
-					}
-					else $errors[] = 'Upload failed<br>';
-				}
-	 
+if($_FILES['file']['name'] != "") { 	
+	$f = explode(".",$_FILES['file']['name']);
+	$ext = strtolower(end($f));
+	$goodExtensions = array('jpg','png','tiff','gif'); 
+	if(!in_array($ext,$goodExtensions)) $errors[] = 'File extension not allowed<br>';
+	if(in_array($ext, $goodExtensions)) {
+		$nameFile = md5(microtime()).".".$ext;   
+		if (!is_array($errors)) {  
+			if (move_uploaded_file($_FILES['file']['tmp_name'], "uploads/".$nameFile)) { 
+				$file = $nameFile;
+				  chmod("uploads/".$nameFile, 0644);
 			}
-		} // upload ended	
-	} // if
+			else $errors[] = 'Upload failed<br>';
+		}
+
+	}
+} // upload ended	
 if (!preg_match('/^[a-zA-Z\" "]*$/', $firstname) 
     || !preg_match('/^[a-zA-Z\" "]*$/', $lastname)
     || !preg_match("~^(\w|\\-|\\.){1,}@(([a-z]|[A-Z]|\\-)*\\.?)*\\.([a-z]|[A-Z]|\\-){1,4}$~", $email)
@@ -53,10 +50,19 @@ if (!preg_match('/^[a-zA-Z\" "]*$/', $firstname)
       }
       else
       {
-        mysql_query("INSERT into users (email, password, name, last_name , picture) values('$email','".md5($pass1)."','$firstname','$lastname','$picture')") or die (mysql_error());
+        mysql_query("INSERT into users (email, password, name, last_name , picture) values('$email','".md5($pass1)."','$firstname','$lastname','$file')") or die (mysql_error());
         echo "<h2>Thank you!!! You have sucessfully registered</h2>";
         echo "Please log in, on the top of the page";
       }
+			
+if(is_array($errors)) {
+	echo "<div style='color:red;'>";
+	foreach($errors as $e) {
+		echo "<p>{$e}</p>";
+	}
+	echo "</div>";
+}
+			
 ?>
   
   <!-- Main body for page ends -->
