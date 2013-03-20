@@ -8,7 +8,7 @@
 Please fill the blanks below</br></br>
 
 <div id="register_box">
-  <form name="input" action="register.php" method="post">
+  <form name="input" action="register.php" method="post" enctype="multipart/form-data">
     <fieldset>
       <legend>Personal information:</legend></br>
       <table width="100%" border="0" cellpadding="0" cellspacing="2">
@@ -27,6 +27,10 @@ Please fill the blanks below</br></br>
       <tr>
       <td>Re-type password:</td><td><input type="password" name="regpass2"><br></td>
       </tr><tr></tr>
+      <tr>
+      <td> <label for="file">Upload:</label> </td>
+      </tr><tr></tr>
+      <td><input type="file" name="file" size="40"></td>
       <tr>
       <td><input type="submit" value="Register"></td>
       </tr><tr></tr>

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
 <html >
 <head>
@@ -9,9 +10,34 @@
 <title>MyUniTrader</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="style.css">
+<? // slider begins **********************************************
+if(basename($_SERVER["SCRIPT_NAME"]) == "index.php"){
+?>
+<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script src="js/jquery-1.7.1.min.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/css3-mediaqueries.js"></script>
+<script src="js/jquery.columnizer.min.js"></script>
+<!-- Lof slider -->
+<script src="js/jquery.easing.js"></script>
+<script src="js/lof-slider.js"></script>
+<link rel="stylesheet" href="css/lof-slider.css" media="all"  /> 
+<!-- ENDS slider -->
+<!-- JCarousel -->
+<script type="text/javascript" src="js/jquery.jcarousel.min.js"></script>
+<!-- ENDS JCarousel -->
+
+<!-- SKIN -->
+<link rel="stylesheet" media="all" href="css/skin.css"/>		
+<!-- flexslider -->
+<link rel="stylesheet" href="css/flexslider.css" >
+		
+<? } // slider ends **********************************************?>
 </head>
 <body>
-<?php session_start(); ?>
+
 <!-- Main holder to center page -->
 <div id="wrapper">
   <!-- Header information -->
@@ -33,7 +59,7 @@
     <div id="login_top">
       <?php
     
-      if(!$_SESSION) 
+      if(empty($_SESSION['name'])) 
       {
         echo 
       "<form name='login_form' action='login.php' method='post'>
@@ -63,9 +89,12 @@
       {
         $count++;
       }
-              
+         if(empty($_SESSION['picture']))
+           $picture='images/no_image.jpg';
+         else
+    	   $picture="uploads/".$_SESSION['picture'];     
          
-         echo "<div id='notification'><img height='30' weight='30' src='".$_SESSION['picture']."' >";
+         echo "<div id='notification'><img height='30' weight='30' src='".$picture."' >";
          echo "Hello, ".$_SESSION['name']." ".$_SESSION['last_name']."!
               <ul>
                 <li class = 'notification-container'>
@@ -94,7 +123,7 @@
 			 { echo"
 			 <li><a href='userpage.php?id=".$_SESSION['user_id']."' class='nav4'>My Profile</a></li>
 			 <li class='divider'></li>
-                         <li><a href='wishpage.php'' class='nav4'>My Wishlist</a></li>
+                         <li><a href='wishpage.php' class='nav4'>My Wishlist</a></li>
                          <li class='divider'></li>";
 			  } ?>                         
                          <li><a href="about_us.php" class="nav5">About Us </a></li>
@@ -138,7 +167,9 @@ include('config.php');
       $price = $row['price'];
       $name = $row['name'];
       if($picture == NULL)
-        $picture='images/no_image.gif';
+        $picture='images/no_image.jpg';
+      else
+    	$picture="uploads/".$picture;
   }
   
   
@@ -167,7 +198,7 @@ $item1 = mysql_query("SELECT * FROM items WHERE item_id = '$random_item'");
       $price2 = $row['price'];
       $name2 = $row['name'];
       if($picture2 == NULL)
-        $picture2='images/no_image.gif';
+        $picture2='images/no_image.jpg';
     
   
    }
@@ -197,8 +228,10 @@ $item3 = mysql_query("SELECT * FROM items ORDER BY views DESC LIMIT 1");
       $picture3 = $row['picture'];
       $price3 = $row['price'];
       $name3 = $row['name'];
-      if($picture3 == NULL)
-        $picture3='images/no_image.gif';
+      if($picture == NULL)
+        $picture='images/no_image.jpg';
+      else
+    	$picture="uploads/".$picture;
   }
 echo "<div class='prod_box_left'>
         	<div class='top_prod_box'></div>

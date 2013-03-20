@@ -17,7 +17,9 @@
            $picture = $row['picture'];
          }
          if($picture == NULL)
-           $picture = 'images/no_image.gif';
+          $picture='images/no_image_person.gif';
+         else
+    	  $picture="uploads/".$picture;
       
   ?>
 

@@ -1,49 +1,3 @@
-<!doctype html>
-<html class="no-js">
-
-	<head>
-		<meta charset="utf-8"/>
-
-		 
-		<!--[if lt IE 9]>
-			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
-		<link rel="stylesheet" media="all" href="cs/style.css"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1"/>
-		<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->		
-				
-		<!-- JS -->
-		<script src="js/jquery-1.7.1.min.js"></script>
-		<script src="js/custom.js"></script>
-		
-		<script src="js/css3-mediaqueries.js"></script>
-		<script src="js/jquery.columnizer.min.js"></script>
-		
-		
-		<!-- Lof slider -->
-		<script src="js/jquery.easing.js"></script>
-		<script src="js/lof-slider.js"></script>
-		<link rel="stylesheet" href="css/lof-slider.css" media="all"  /> 
-		<!-- ENDS slider -->
-	
-		
-		
-
-		<!-- JCarousel -->
-		<script type="text/javascript" src="js/jquery.jcarousel.min.js"></script>
-		<link rel="stylesheet" media="screen" href="css/carousel.css" /> 
-		<!-- ENDS JCarousel -->
-		
-
-		<!-- SKIN -->
-		<link rel="stylesheet" media="all" href="css/skin.css"/>
-		
-		<!-- flexslider -->
-		<link rel="stylesheet" href="css/flexslider.css" >
-		
-
-	</head>
-	
 				<!-- SLIDER -->				
 				<div id="home-slider" class="lof-slidecontent">
 					
@@ -113,4 +67,3 @@
 				          
 				 </div> 
 				<!-- ENDS SLIDER -->
-</html>
