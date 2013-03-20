@@ -28,6 +28,10 @@ Please fill the blanks below</br></br>
       <td>Re-type password:</td><td><input type="password" name="regpass2"><br></td>
       </tr><tr></tr>
       <tr>
+      <td> <label for="file">Upload:</label> </td>
+      </tr><tr></tr>
+      <td><input type="file" name="file" size="40"></td>
+      <tr>
       <td><input type="submit" value="Register"></td>
       </tr><tr></tr>
       </table></br>
