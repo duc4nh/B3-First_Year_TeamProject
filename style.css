@@ -214,6 +214,7 @@ float: right;
   height: auto;
   padding: 10px 10px 10px 0px;
   width: 173px;
+  height: 192px;
 }
 .top_prod_box {
   background: url("images/product_box_top.gif") no-repeat scroll center bottom transparent;
@@ -245,6 +246,7 @@ float: right;
 }
 .product_img {
   padding: 5px 0;
+height: 98px;
 }
 .prod_price {
   padding: 5px 0;
