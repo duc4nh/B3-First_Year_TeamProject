@@ -15,47 +15,36 @@
           
 	<div class="index_box_body">
 	<h2>Featured</h2>
-<div class="prod_box">
-        	<div class="top_prod_box"></div>
-            <div class="center_prod_box">            
-                 <div class="product_title"><a href="details.html">Asus</a></div>
-                 <div class="product_img"><a href="details.html"><img border="0" title="" alt="" src="images/laptop.gif"></a></div>
-                 <div class="prod_price"><span class="price">270$</span></div>                        
+
+  <?php
+    $item1 = mysql_query("SELECT * FROM items WHERE feat='1' ORDER BY item_id DESC LIMIT 4");
+  while ($row = mysql_fetch_assoc($item1)) 
+  {
+      $item_id = $row['item_id'];
+      $picture = $row['picture'];
+      $price = $row['price'];
+      $name = $row['name'];
+      if($picture == NULL)
+        $picture='http://www.tiesummit.com/wp-content/uploads/2012/10/noimage.jpg';
+      else
++      $picture="uploads/".$picture;
+
+echo "
+<div class='prod_box'>
+        	<div class='top_prod_box'></div>
+            <div class='center_prod_box'>            
+                 <div class='product_title'><a href='item_page.php?id=".$item_id."'>".$name."</a></div>
+                 <div class='product_img'><a href='item_page.php?id=".$item_id."'><img border='0' height='94' weight='94'  src='".$picture."'></a></div>
+                 <div class='prod_price'><span class='price'>£".$price."</span></div>                           
             </div>
-            <div class="bottom_prod_box"></div>             
+            <div class='bottom_prod_box'></div>             
 </div>
 
-<div class="prod_box">
-        	<div class="top_prod_box"></div>
-            <div class="center_prod_box">            
-                 <div class="product_title"><a href="details.html">Iphone</a></div>
-                 <div class="product_img"><a href="details.html"><img border="0" title="" alt="" src="images/iphone.jpeg"></a></div>
-                 <div class="prod_price"><span class="price">640$</span></div>                        
-            </div>
-            <div class="bottom_prod_box"></div>             
-</div>
+";
 
-<div class="prod_box">
-        	<div class="top_prod_box"></div>
-            <div class="center_prod_box">            
-                 <div class="product_title"><a href="details.html">Ipad</a></div>
-                 <div class="product_img"><a href="details.html"><img border="0" title="" alt="" src="images/ipad.png"></a></div>
-                 <div class="prod_price"><span class="price">20$</span></div>                        
-            </div>
-            <div class="bottom_prod_box"></div>             
-</div>
+}
 
-<div class="prod_box">
-          <div class="top_prod_box"></div>
-            <div class="center_prod_box">            
-                 <div class="product_title"><a href="details.html">GPS</a></div>
-                 <div class="product_img"><a href="details.html"><img border="0" title="" alt="" src="images/gps.png"></a></div>
-                 <div class="prod_price"><span class="price">70$</span></div>                        
-            </div>
-            <div class="bottom_prod_box"></div>             
-</div>
-
-
+?>
 	</div>
 	</br></br>
 	<!-- End Feature row -->
@@ -70,7 +59,7 @@
 
 include('config.php');
   
-  $item1 = mysql_query("SELECT * FROM items WHERE type='2' ORDER BY item_id DESC LIMIT 4");
+  $item1 = mysql_query("SELECT * FROM items WHERE type='2' ORDER BY item_id DESC LIMIT 8");
   while ($row = mysql_fetch_assoc($item1)) 
   {
       $item_id = $row['item_id'];
@@ -79,7 +68,8 @@ include('config.php');
       $name = $row['name'];
       if($picture == NULL)
         $picture='http://www.tiesummit.com/wp-content/uploads/2012/10/noimage.jpg';
-  
+      else
++      $picture="uploads/".$picture;
   
   
 
@@ -109,7 +99,7 @@ echo "
 
 
   
-  $item1 = mysql_query("SELECT * FROM items WHERE type='1' ORDER BY item_id DESC LIMIT 4");
+  $item1 = mysql_query("SELECT * FROM items WHERE type='1' ORDER BY item_id DESC LIMIT 8");
   $endline_count=0;
   while ($row = mysql_fetch_assoc($item1)) 
   {
@@ -119,7 +109,8 @@ echo "
       $name = $row['name'];
       if($picture == NULL)
         $picture='http://www.tiesummit.com/wp-content/uploads/2012/10/noimage.jpg';
-  
+      else
++      $picture="uploads/".$picture;
   
   
 $endline_count++;
