@@ -10,7 +10,7 @@
 		include_once("config.php");
 		include_once("functions.php");
 		$search = escape_value($_POST['search']);
-		$query = "SELECT * FROM `items` WHERE `status` = 1 AND `name` LIKE '%{$search}%' AND `description` LIKE '%{$search}%'";
+		$query = "SELECT * FROM `items` WHERE `status` = 1 AND `name` LIKE '%{$search}%' OR `description` LIKE '%{$search}%'";
 		 $data = mysql_query($query); 
 		 echo "<div id='all_items'>"; 
 		 if(mysql_num_rows($data))
@@ -19,7 +19,7 @@
 			 { 
 				$image = $info['picture'];
 				if(empty($image))
-					$image = 'http://www.worldofchemicals.com/Woclite/tmp/chem/no_image.gif';		
+					$image = 'images/no_image.jpg';		
 				else
 					$image = "uploads/".$image;
 			?>

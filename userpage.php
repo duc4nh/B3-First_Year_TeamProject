@@ -17,7 +17,9 @@
            $picture = $row['picture'];
          }
          if($picture == NULL)
-           $picture = 'http://www.worldofchemicals.com/Woclite/tmp/chem/no_image.gif';
+          $picture='images/no_image_person.gif';
+         else
+    	  $picture="uploads/".$picture;
       
   ?>
 
@@ -114,7 +116,7 @@
 
       
       <div id="item_comments">
-       <div class="fb-comments" data-href="http://soba.cs.man.ac.uk/~berianv2/FOLDER/B3-First_Year_TeamProject/userpage.php?id=<?php echo $_SESSION['user_id'];?>" data-width="675" data-num-posts="10"></div>      
+                <div class="fb-comments" data-href="http://rtd.lt/fbcomments/?id=<?php echo $item_id;?>" data-width="675" data-num-posts="10"></div>
       </div>
 
     </div>

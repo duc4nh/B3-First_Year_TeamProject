@@ -78,9 +78,9 @@ include('config.php');
       $price = $row['price'];
       $name = $row['name'];
       if($picture == NULL)
-        $picture='http://www.tiesummit.com/wp-content/uploads/2012/10/noimage.jpg';
-  
-  
+        $picture='images/no_image.jpg';
+      else
+    	$picture="uploads/".$picture;
   
 
 echo "
@@ -118,8 +118,9 @@ echo "
       $price = $row['price'];
       $name = $row['name'];
       if($picture == NULL)
-        $picture='http://www.tiesummit.com/wp-content/uploads/2012/10/noimage.jpg';
-  
+        $picture='images/no_image.jpg';
+      else
+    	$picture="uploads/".$picture;
   
   
 $endline_count++;
