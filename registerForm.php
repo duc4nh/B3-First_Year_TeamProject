@@ -8,7 +8,7 @@
 Please fill the blanks below</br></br>
 
 <div id="register_box">
-  <form name="input" action="register.php" method="post">
+  <form name="input" action="register.php" method="post" enctype="multipart/form-data">
     <fieldset>
       <legend>Personal information:</legend></br>
       <table width="100%" border="0" cellpadding="0" cellspacing="2">
