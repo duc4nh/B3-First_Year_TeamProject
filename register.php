@@ -51,7 +51,7 @@ if (!preg_match('/^[a-zA-Z\" "]*$/', $firstname)
       }
       else
       {
-        mysql_query("INSERT into users (email, password, name, last_name , picture) values('$email','".md5($pass1)."','$firstname','$lastname','$picture')") or die (mysql_error());
+        mysql_query("INSERT into users (email, password, name, last_name , picture) values('$email','".md5($pass1)."','$firstname','$lastname','$file')") or die (mysql_error());
         echo "<h2>Thank you!!! You have sucessfully registered</h2>";
         echo "Please log in, on the top of the page";
       }
