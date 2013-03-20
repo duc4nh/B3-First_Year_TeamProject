@@ -40,7 +40,7 @@ $user_id = $_SESSION['user_id'];
                 {
                   $category_name = $row['category_name'];
                   
-                    if($status == 1 && $type == 1)
+                    if($status == 1 && $type == 1 && $endline_count < 16)
                     {
 $endline_count++;
 echo "
@@ -51,6 +51,7 @@ echo "
                  <div class='creation_date'>Created: <span class='creation'>".$creation_date ."</span></div> 
                  <div class='expiration_date'>Expires: <span class='expiration'>".$expiration_date ."</span></div> 
                  <div class='created_by'>By: <span class='user'>".$owner_name." ".$owner_last_name."</span></div>
+                 <div class='product_img'><a href='item_page.php?id=".$item_id."'><img border='0' height='94' weight='94'  src='".$picture."'></a></div>
                  <div class='views_product'>Views: <span class='views'>".$views ."</span></div>  
                  <div class='category_name'>Category: <span class='category'>".$category_name ."</span></div> 
             </div>
@@ -58,9 +59,9 @@ echo "
 </div>
 ";
 
-if($endline_count==4)
+if($endline_count % 4 == 0)
 {
-  $endline_count=0;
+
   echo "<br>";
 }
  
