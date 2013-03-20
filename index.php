@@ -78,7 +78,7 @@ echo "
             <div class='center_prod_box'>            
                  <div class='product_title'><a href='item_page.php?id=".$item_id."'>".$name."</a></div>
                 
-                 <div class='product_img'><a href='item_page.php?id=".$item_id."'><img border='0' height='94' weight='94'  src='".$picture."'></a></div>
+                 <div class='product_img'><a href='item_page.php?id=".$item_id."'><img border='0' height='94' width='94'  src='".$picture."'></a></div>
                  <div class='prod_price'><span class='price'>£".$price."</span></div>                        
             </div>
             <div class='bottom_prod_box'></div>             
@@ -119,7 +119,7 @@ echo "
             <div class='center_prod_box'>            
                  <div class='product_title'><a href='item_page.php?id=".$item_id."'>".$name."</a></div>
                 
-                 <div class='product_img'><a href='item_page.php?id=".$item_id."'><img border='0' height='94' weight='94'  src='".$picture."'></a></div>
+                 <div class='product_img'><a href='item_page.php?id=".$item_id."'><img border='0' height='94' width='94'  src='".$picture."'></a></div>
                  <div class='prod_price'><span class='price'>£".$price."</span></div>                        
             </div>
             <div class='bottom_prod_box'></div>             
