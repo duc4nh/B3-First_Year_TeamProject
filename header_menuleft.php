@@ -9,6 +9,36 @@
 <title>MyUniTrader</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="style.css">
+<? // slider begins **********************************************
+if(basename($_SERVER["SCRIPT_NAME"]) == "index.php"){
+?>
+<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<link rel="stylesheet" media="all" href="cs/style.css"/>
+<script src="js/jquery-1.7.1.min.js"></script>
+<script src="js/custom.js"></script>
+
+<script src="js/css3-mediaqueries.js"></script>
+<script src="js/jquery.columnizer.min.js"></script>
+
+<!-- Lof slider -->
+<script src="js/jquery.easing.js"></script>
+<script src="js/lof-slider.js"></script>
+<link rel="stylesheet" href="css/lof-slider.css" media="all"  /> 
+<!-- ENDS slider -->
+
+<!-- JCarousel -->
+<script type="text/javascript" src="js/jquery.jcarousel.min.js"></script>
+<link rel="stylesheet" media="screen" href="css/carousel.css" /> 
+<!-- ENDS JCarousel -->
+
+<!-- SKIN -->
+<link rel="stylesheet" media="all" href="css/skin.css"/>		
+<!-- flexslider -->
+<link rel="stylesheet" href="css/flexslider.css" >
+		
+<? } // slider ends **********************************************?>
 </head>
 <body>
 <?php session_start(); ?>
