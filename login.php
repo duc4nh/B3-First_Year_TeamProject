@@ -1,12 +1,8 @@
-<!-- header and menu left -->
-<?php include('header_menuleft.php'); ?>
-
-<!-- Main body for page -->
-
 <?php
+include_once("functions.php"); 
 
-$email = $_POST['email'];
-$password = $_POST['password'];
+$email = escape_value($_POST['email']);
+$password = escape_value($_POST['password']);
 
 if($email && $password)
 {
@@ -29,7 +25,7 @@ if($email && $password)
        if($picture == NULL)
            $picture = 'http://www.worldofchemicals.com/Woclite/tmp/chem/no_image.gif';
     }
-    if ($email == $dbemail && $password == $dbpassword)
+    if ($email == $dbemail && md5($password) == $dbpassword)
     {
       $_SESSION['email'] = $email;
       $_SESSION['user_id'] = $user_id;
@@ -38,16 +34,16 @@ if($email && $password)
       $_SESSION['description'] = $description;
       $_SESSION['picture'] = $picture;
       
-      echo "<br />You have logged in! <a href='userpage.php?id=".$user_id."'>Click here </a> to go to your profile!";
+      $message = "<br />You have logged in! <a href='userpage.php?id=".$user_id."'>Click here </a> to go to your profile!";
     }
     else
     {
-    	 echo "Please check your details! <a href='index.php'>Click here </a> to go back to Home Page!";
+    	 $message = "Please check your details! <a href='index.php'>Click here </a> to go back to Home Page!";
     }
   }
   else
   {
-    echo "Please check your details! <a href='index.php'>Click here </a> to go back to Home Page!";
+    $message = "Please check your details! <a href='index.php'>Click here </a> to go back to Home Page!";
   }
 
 
@@ -56,5 +52,12 @@ else
 {
   echo "Please check your details! <a href='index.php'>Click here </a> to go back to Home Page!";
 }
+?>
+<!-- header and menu left -->
+<?php include('header_menuleft.php');?>
+
+<!-- Main body for page -->
+<?=$message;?>
+<?
 include('footer.php');
 ?>
