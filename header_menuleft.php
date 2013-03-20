@@ -138,7 +138,7 @@ include('config.php');
       $price = $row['price'];
       $name = $row['name'];
       if($picture == NULL)
-        $picture='http://www.tiesummit.com/wp-content/uploads/2012/10/noimage.jpg';
+        $picture='images/no_image.gif';
   }
   
   
@@ -167,7 +167,7 @@ $item1 = mysql_query("SELECT * FROM items WHERE item_id = '$random_item'");
       $price2 = $row['price'];
       $name2 = $row['name'];
       if($picture2 == NULL)
-        $picture2='http://www.tiesummit.com/wp-content/uploads/2012/10/noimage.jpg';
+        $picture2='images/no_image.gif';
     
   
    }
@@ -198,7 +198,7 @@ $item3 = mysql_query("SELECT * FROM items ORDER BY views DESC LIMIT 1");
       $price3 = $row['price'];
       $name3 = $row['name'];
       if($picture3 == NULL)
-        $picture3='http://www.tiesummit.com/wp-content/uploads/2012/10/noimage.jpg';
+        $picture3='images/no_image.gif';
   }
 echo "<div class='prod_box_left'>
         	<div class='top_prod_box'></div>
