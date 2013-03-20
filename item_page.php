@@ -24,8 +24,10 @@
   mysql_query("UPDATE items  SET views = '$views' WHERE item_id = '$item_id'");
   if(empty($picture))
   {
-    $picture = 'images/no_image.gif';
+    $picture = 'images/no_image.jpg';
   }
+  else
+    $picture="uploads/".$picture;
 
   $user_names = mysql_query("SELECT * FROM users WHERE user_id = '$user_id_i' ");
   while ($rowa = mysql_fetch_assoc($user_names)) 

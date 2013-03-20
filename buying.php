@@ -26,9 +26,12 @@ $user_id = $_SESSION['user_id'];
               $views = $row['views'];
 
               $picture = $row['picture'];
+	      
   
               if($picture == NULL)
-                $picture='http://www.tiesummit.com/wp-content/uploads/2012/10/noimage.jpg';
+                $picture='images/no_image.jpg';
+	      else
+    		$picture="uploads/".$picture;
 
               $query4 = mysql_query("SELECT * FROM users WHERE user_id = '$user_id' ");
               while ($row = mysql_fetch_assoc($query4)) 
