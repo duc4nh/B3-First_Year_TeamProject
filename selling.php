@@ -2,6 +2,8 @@
 session_start();
 include('header_menuleft.php'); 
 include('config.php'); 
+include("pagination.php");
+include_once("functions.php");
 $user_id = $_SESSION['user_id'];
 
 ?>
@@ -9,10 +11,39 @@ $user_id = $_SESSION['user_id'];
      <h2>Selling items</h2>
 
 <?php
+$p = new pagination();
+$conn = mysql_query("SELECT * FROM items WHERE `status` = 1 AND `type` = 2");
+$j = 0;
+while($temp = mysql_fetch_assoc($conn)){
+	$j++;
+}
+if(!isset($_GET['page'])){ $page = 1; } else { $page = escape_value($_GET['page']); }
+$arr = $p->calculate_pages($j, 12, $page); //pagination				
 
+$pagehtml = "&nbsp;&nbsp;<br clear=all><p style='font-size:14px !important; display:block;'>Pages:</p> <ul class='pagination'>";
+if($arr['current'] > 1){
+	$pagehtml .= "<li><a href=?page={$arr['previous']}><<</a></li>";
+}
+$max_number = $arr['current'] + 6;
+foreach($arr['pages'] as $pageid){
+	if($arr['current'] == $pageid){
+		$pagehtml .= "<li>{$pageid}</li>";
+	} else {
+		if($pageid <= $max_number AND $pageid > $arr['current'] ){
+			$pagehtml .= "<li><a href=?page={$pageid}>{$pageid}</a></li>";
+		}
+	}
+}
+if($arr['current']+2 <= (int)$arr['last']){
+	$arrows = $arr['current']+5;
+	$pagehtml .= "<li><a href=?page={$arrows}>>></a></li>";
+}
+$pagehtml .= "</ul><br/>";
 
+$i = 0;
+    
+     $query3 = mysql_query("SELECT * FROM items WHERE `status` = 1  AND `type` = 2 ORDER BY `item_id` DESC {$arr['limit']}");
 
-     $query3 = mysql_query("SELECT * FROM items");
      $endline_count=0;
      while ($row = mysql_fetch_assoc($query3)) 
      {           $item_id = $row['item_id'];
@@ -69,7 +100,7 @@ echo "
                 }
               }
      }
-
+if($endline_count != 0)   echo $pagehtml;
 ?>
 
 </div>
