@@ -73,8 +73,8 @@
             echo "
           <h5>Requester: <a href='userpage.php?id=".$user_id_i."'>".$user_name." ".$user_last_name."</a></h5>";
           ?>
-	<? if(!empty($_SESSION['user_id'])) echo"
-          <button href='message.php?user={$user_id_i}' type='submit' name='send_mess' />Send message</button>"; ?>
+	<? if(!empty($_SESSION['user_id'])) echo "
+          <a href='message.php?user={$user_id_i}'  name='send_mess' />Send message</a>"; ?>
         </div>
       </div>
       <div id="item_title">
