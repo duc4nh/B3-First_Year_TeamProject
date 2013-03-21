@@ -27,7 +27,7 @@ if($_FILES['file']['name'] != "") {
 		if (!is_array($errors)) {  
 			if (move_uploaded_file($_FILES['file']['tmp_name'], "uploads/".$nameFile)) { 
 				$file = $nameFile;
-				  chmod("uploads/".$nameFile, 0644);
+				chmod("uploads/".$nameFile, 0644);
 			}
 			else $errors[] = 'Upload failed<br>';
 		}

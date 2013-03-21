@@ -33,7 +33,8 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
 				$nameFile = md5(microtime()).".".$ext;   
 				if (!is_array($errors)) {  
 					if (move_uploaded_file($_FILES['file']['tmp_name'], "uploads/".$nameFile)) { 
-						$file = $nameFile;		 
+						$file = $nameFile;
+						chmod("uploads/".$nameFile, 0644);		 
 					}
 					else $errors[] = 'Upload failed<br>';
 				}
