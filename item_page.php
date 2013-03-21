@@ -1,10 +1,11 @@
 <!-- header and menu left -->
 <?php 
   include('header_menuleft.php'); 
-  $item_id = $_GET['id'];
+  include("functions.php");
+  $item_id = escape_value($_GET['id']);
 
 
-  $query = mysql_query("SELECT * FROM items WHERE item_id = '$item_id' ");
+  $query = mysql_query("SELECT * FROM items WHERE item_id = '$item_id' LIMIT 1 ");
   while ($row = mysql_fetch_assoc($query)) 
   {
     $user_id_i = $row['user_id'];
@@ -13,8 +14,8 @@
     $price = $row['price'];
     $status = $row['status'];
     $type = $row['type'];
-    $name = $row['name'];
-    $description = $row['description'];
+    $name = stripslashes($row['name']);
+    $description = stripslashes($row['description']);
     $category_id = $row['category_id'];
     $picture = $row['picture'];
     $views = $row['views'];
@@ -57,6 +58,7 @@
 
   
     <div id="item_page">
+<? if(!empty($user_id_i)) { ?>
       <div id="left_item">
         <div id="profile_pic">
           <img height="150" weight="150" src="<?php echo $picture; ?>">
@@ -99,10 +101,7 @@
       </div> 
       <br>
       <div id="item_trade">
-       <?php
-      
-
-
+       <?php  
        if($_SESSION['user_id'] != $user_id_i)
        { 
           if($status == 1)
@@ -131,6 +130,8 @@
   
                 <div class="fb-comments" data-href="http://rtd.lt/fbcomments/?id=<?php echo $item_id;?>" data-width="675" data-num-posts="10"></div>
       </div>
+
+<? } else echo "Item not found"; ?>
   </div>
      
     
