@@ -57,7 +57,7 @@ echo "
 <?php
 
   
-  $item1 = mysql_query("SELECT * FROM items WHERE type='2' ORDER BY item_id DESC LIMIT 4");
+  $item1 = mysql_query("SELECT * FROM items WHERE type='2' ORDER BY item_id DESC LIMIT 8");
   while ($row = mysql_fetch_assoc($item1)) 
   {
       $item_id = stripslashes($row['item_id']);
@@ -96,7 +96,7 @@ echo "
 
 
   
-  $item1 = mysql_query("SELECT * FROM items WHERE type='1' ORDER BY item_id DESC LIMIT 4");
+  $item1 = mysql_query("SELECT * FROM items WHERE type='1' ORDER BY item_id DESC LIMIT 8");
   $endline_count=0;
   while ($row = mysql_fetch_assoc($item1)) 
   {
