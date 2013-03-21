@@ -1,10 +1,45 @@
 <?php 
 session_start();
 include('header_menuleft.php'); 
+include("pagination.php");
+include_once("functions.php");
 include('config.php'); 
-$category_id = $_GET['id'];
+$category_id = escape_value($_GET['id']);
 ?>
     <?php 
+$p = new pagination();
+$conn = mysql_query("SELECT * FROM `items` WHERE `category_id` = '$category_id'  AND `status` = 1 ");
+$j = 0;
+while($temp = mysql_fetch_assoc($conn)){
+	$j++;
+}
+if(!isset($_GET['page'])){ $page = 1; } else { $page = escape_value($_GET['page']); }
+$arr = $p->calculate_pages($j, 12, $page); //pagination				
+
+$pagehtml = "&nbsp;&nbsp;<br clear=all><p style='font-size:14px !important; display:block;'>Pages:</p> <ul class='pagination'>";
+if($arr['current'] > 1){
+	$pagehtml .= "<li><a href=?id={$category_id}&page={$arr['previous']}><<</a></li>";
+}
+$max_number = $arr['current'] + 6;
+foreach($arr['pages'] as $pageid){
+	if($arr['current'] == $pageid){
+		$pagehtml .= "<li>{$pageid}</li>";
+	} else {
+		if($pageid <= $max_number AND $pageid > $arr['current'] ){
+			$pagehtml .= "<li><a href=?id={$category_id}&page={$pageid}>{$pageid}</a></li>";
+		}
+	}
+}
+if($arr['current']+2 <= (int)$arr['last']){
+	$arrows = $arr['current']+5;
+	$pagehtml .= "<li><a href=?id={$category_id}&page={$arrows}>>></a></li>";
+}
+$pagehtml .= "</ul><br/>";
+
+$i = 0;
+
+
+
     $qry = mysql_query("SELECT * FROM `categories` WHERE `category_id` = '$category_id'");
     if (mysql_numrows($qry) != 0)
     {
@@ -19,10 +54,13 @@ $category_id = $_GET['id'];
 
     
 
-     $query3 = mysql_query("SELECT * FROM `items` WHERE `category_id`='$category_id'");
+     //$query3 = mysql_query("SELECT * FROM `items` WHERE `category_id`='$category_id'");
+$query3 = mysql_query("SELECT * FROM `items` WHERE `category_id`='$category_id' AND `status` = 1 ORDER BY `item_id` DESC {$arr['limit']}");
      $endline_count=0;
-     while ($row = mysql_fetch_assoc($query3)) 
-     {           $item_id = $row['item_id'];
+     while ($row = mysql_fetch_array($query3)) 
+     {           
+		$endline_count++;
+		$item_id = $row['item_id'];
                  $user_id = $row['user_id'];
                  $creation_date = $row['creation_date'];
                  $expiration_date = $row['expiration_date'];
@@ -48,7 +86,7 @@ $category_id = $_GET['id'];
                 
                     if($status == 1 )
                     {
-$endline_count++;
+
 
 		 if($type == 1)
 		  $print_type = "Buying";
@@ -57,11 +95,6 @@ $endline_count++;
 		 
 
 echo "
-
-
-
-
-
 <div class='prod_box'>
             <div class='top_prod_box'></div>
             <div class='center_prod_box blocks'>            
@@ -78,15 +111,10 @@ echo "
 </div>
 ";
 
-if($endline_count==4)
-{
-  $endline_count=0;
-  //echo "<br>";
-}
                     }
                 }
               }
-     
+if($endline_count != 0)   echo $pagehtml;
 if($endline_count == 0) echo "Sorry the category is empty";
 ?>
 
