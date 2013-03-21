@@ -9,7 +9,7 @@ Please fill the blanks below</br></br>
 
 <div id="register_box">
   <form name="input" action="register.php" method="post" enctype="multipart/form-data">
-    <fieldset>
+    <fieldset style="padding-left: 6px;">
       <legend>Personal information:</legend></br>
       <table width="100%" border="0" cellpadding="0" cellspacing="2">
       <tr>
