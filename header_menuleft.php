@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+i<?php session_start(); ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
 <html >
 <head>
@@ -148,14 +148,14 @@ if(basename($_SERVER["SCRIPT_NAME"]) == "index.php"){
   <div id="menu">
     <h4 class="categories">CATEGORIES</h4>
     <ul>
-      <li><a href="items_by_category?id=1">Books</a>
-      <li><a href="items_by_category?id=2">Stationary</a>
-      <li><a href="items_by_category?id=3">Technology</a>
-      <li><a href="items_by_category?id=4">Music</a>
-      <li><a href="items_by_category?id=5">Games</a>
-      <li><a href="items_by_category?id=6">Fashion</a>
-      <li><a href="items_by_category?id=7">Kitchen</a>
-      <li><a href="items_by_category?id=8">Other</a>
+      <li><a href="items_by_category.php?id=1">Books</a>
+      <li><a href="items_by_category.php?id=2">Stationary</a>
+      <li><a href="items_by_category.php?id=3">Technology</a>
+      <li><a href="items_by_category.php?id=4">Music</a>
+      <li><a href="items_by_category.php?id=5">Games</a>
+      <li><a href="items_by_category.php?id=6">Fashion</a>
+      <li><a href="items_by_category.php?id=7">Kitchen</a>
+      <li><a href="items_by_category.php?id=8">Other</a>
     </ul>
 <?php
 include('config.php');
