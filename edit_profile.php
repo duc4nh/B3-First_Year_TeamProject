@@ -48,14 +48,17 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
 					`description` = '{$description}'";
 if(!empty($password)) $query .= ", `password` = '".md5($password)."'";
 if($_FILES['file']['name'] != "" AND !empty($password))	$query .= ", ";
-		if($_FILES['file']['name'] != "") $query .= "`picture` = '{$file}'";					
+		if($_FILES['file']['name'] != "") $query .= ", `picture` = '{$file}'";					
 					$query .= " WHERE `user_id` = '{$id1}'";
-					
-		
 		mysql_query($query);
 		$id = mysql_insert_id();
 		$message = "Profile successfully updated! Click <a href='userpage.php?id={$id1}'>here</a> to view
 		your profile";
+      $_SESSION['email'] = $email;
+      $_SESSION['name'] = $name;
+      $_SESSION['last_name'] = $last_name;
+      $_SESSION['description'] = $description;
+      $_SESSION['picture'] = $file;
 	} // insert if
 
 } //if
