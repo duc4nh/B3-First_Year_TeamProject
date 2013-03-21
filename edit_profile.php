@@ -94,7 +94,7 @@ if($_FILES['file']['name'] != "" AND !empty($password))	$query .= ", ";
       <div id="register_box">
         <form name="input" action="" method="post" enctype="multipart/form-data">
           <fieldset>
-	      <legend>Personal information:</legend></br>
+	      <legend>Change Your Personal information:</legend></br>
 			<?
 			if(is_array($errors)) {
 				echo "<div style='color:red;'>";
@@ -127,7 +127,7 @@ if($_FILES['file']['name'] != "" AND !empty($password))	$query .= ", ";
             </tr><tr></tr>
             <tr>
 	    
-	    <td width="1%">Phone number: </td>
+	    <td width="1%">Phone Number: </td>
               <td><input type="text" name="phone_number" value="<?echo $data['phone_number'];?>"></td>
             </tr><tr></tr>
             <tr>
