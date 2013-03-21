@@ -180,7 +180,7 @@ echo "<div class='prod_box_left'>
             <div class='center_prod_box'>            
                  <div class='product_title'><a title='{$row['name']}' href='item_page.php?id=".$item_id."'>Latest added</a></div>
                  <center><h6>".$name."</h6></center>
-                 <div class='product_img'><a href='item_page.php?id=".$item_id."'><img border='0' height='94' weight='94'  src='".$picture."'></a></div>
+                 <div class='product_img'><a href='item_page.php?id=".$item_id."'><img border='0' height='94' width='94'  src='".$picture."'></a></div>
                  <div class='prod_price'><span class='price'>£".$price."</span></div>                        
             </div>
             <div class='bottom_prod_box'></div>             
@@ -215,7 +215,7 @@ echo "<div class='prod_box_left'>
             <div class='center_prod_box'>            
                  <div class='product_title'><a title='{$row['name']}' href='item_page.php?id=".$item2_id."'>Random product</a></div>
                  <center><h6>".$name2."</h6></center>
-                 <div class='product_img'><a href='item_page.php?id=".$item2_id."'><img border='0' height='94' weight='94'  src='". $picture2 ."'></a></div>
+                 <div class='product_img'><a href='item_page.php?id=".$item2_id."'><img border='0' height='94' width='94'  src='". $picture2 ."'></a></div>
                  <div class='prod_price'><span class='price'>£".$price2."</span></div>                        
             </div>
             <div class='bottom_prod_box'></div>             
@@ -239,7 +239,7 @@ echo "<div class='prod_box_left'>
             <div class='center_prod_box'>            
                  <div class='product_title'><a title='{$row['name']}' href='item_page.php?id=".$item3_id."'>Most popular</a></div>
                  <center><h6>".$name3."</h6></center>
-                 <div class='product_img'><a href='item_page.php?id=".$item3_id."'><img border='0' height='94' weight='94'  src='".$picture3."'></a></div>
+                 <div class='product_img'><a href='item_page.php?id=".$item3_id."'><img border='0' height='94' width='94'  src='".$picture3."'></a></div>
                  <div class='prod_price'><span class='price'>£".$price3."</span></div>                        
             </div>
             <div class='bottom_prod_box'></div>             

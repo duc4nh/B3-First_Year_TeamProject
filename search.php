@@ -25,7 +25,7 @@
 			?>
 				<div class="item_in_list">
 					<div class="item_in_list_image">
-						<a href="item_page.php?id=<?=$info['item_id']?>"><img height="150" weight="150" alt="<?=$info['name'];?>" src="<?=$image?>"></a>
+						<a href="item_page.php?id=<?=$info['item_id']?>"><img height="150" width="150" alt="<?=$info['name'];?>" src="<?=$image?>"></a>
 					</div>
 					<div class="item_in_list_name">
 						<a href="item_page.php?id=<?=$info['item_id']?>"><b><?=stripslashes(substr($info['name'],0,150));?></b></a>

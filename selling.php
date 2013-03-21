@@ -53,7 +53,7 @@ echo "
             <div class='top_prod_box'></div>
             <div class='center_prod_box blocks'>            
                  <div class='product_title'><a href='item_page.php?id=".$item_id."'>".$name."</a></div>
-		 <div class='product_img'><a href='item_page.php?id=".$item_id."'><img border='0' height='94' weight='94'  src='".$picture."'></a></div>
+		 <div class='product_img'><a href='item_page.php?id=".$item_id."'><img border='0' height='94' width='94'  src='".$picture."'></a></div>
                  <div class='creation_date'>Created: <span class='creation'>".$creation_date ."</span></div> 
                  <div class='expiration_date'>Expires: <span class='expiration'>".$expiration_date ."</span></div>
                  <div class='price_set'>Price: <span class='price'>£".$price ."</span></div> 
