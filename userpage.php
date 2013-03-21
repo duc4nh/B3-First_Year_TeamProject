@@ -39,7 +39,7 @@ include_once("config.php");
         </div>
         <br/>
         <div id="user_contact">
-          <button type="submit" name="send_mess" />Send message</button>
+          <button type="submit" name="send_mess" />Send A Message</button>
           <br>
 	  <br>
 	  
@@ -48,7 +48,7 @@ include_once("config.php");
 	  $logged_id = $_SESSION['user_id'];
 	  if($local_id == $logged_id)
 	  echo "
-	  <a href=edit_profile.php><button>Edit your profile</button></a>" ;
+	  <a href=edit_profile.php><button>Edit Your Profile</button></a>" ;
 	  ?>
 	</div>
       </div>
