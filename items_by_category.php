@@ -59,7 +59,7 @@ $query3 = mysql_query("SELECT * FROM `items` WHERE `category_id`='$category_id' 
      $endline_count=0;
      while ($row = mysql_fetch_array($query3)) 
      {           
-		$endline_count++;
+
 		$item_id = $row['item_id'];
                  $user_id = $row['user_id'];
                  $creation_date = $row['creation_date'];
@@ -86,7 +86,7 @@ $query3 = mysql_query("SELECT * FROM `items` WHERE `category_id`='$category_id' 
                 
                     if($status == 1 )
                     {
-
+		$endline_count++;
 
 		 if($type == 1)
 		  $print_type = "Buying";
