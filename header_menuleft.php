@@ -51,7 +51,7 @@ if(basename($_SERVER["SCRIPT_NAME"]) == "index.php"){
         echo "Welcome Student!  You can Log in or <a href='registerForm.php'>Create an account</a>";
       }
       else
-        echo "Welcome, ".$_SESSION['name']." ".$_SESSION['last_name']."!";
+        echo "Welcome, ".$_SESSION['name']."!";
       ?>
     </div>
     <div id="logo">
@@ -96,15 +96,15 @@ if(basename($_SERVER["SCRIPT_NAME"]) == "index.php"){
     	   $picture="uploads/".$_SESSION['picture'];     
          
          echo "<div id='notification'><img height='30' width='30' src='".$picture."' >";
-         echo "Hello, ".$_SESSION['name']." ".$_SESSION['last_name']."!
+         echo "Hello, ".$_SESSION['name']."!
               <ul>
                 <li class = 'notification-container'>
                   <i class='icon-globe'><a href='offers.php'><img src='images/mail.png'/></a></i>
                   <span class='notification-counter'>".$count."</span>
                 </li>
-              </ul><br>
+              </ul>
                ";
-         echo "<a href='logout.php'>Log out!</a></div>";
+         echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='logout.php'>Log out!</a></div>";
 
       }
      ?>
