@@ -34,7 +34,7 @@
 						<a href="item_page.php?id=<?=$info['item_id']?>"><?=stripslashes(substr($info['description'],0,150));?></a>
 					</div>
 					<div class="item_in_list_price">
-						<?=stripslashes(substr($info['price'],0,150));?> &#163;
+						 &#163 <?=stripslashes(substr($info['price'],0,150));?>;
 					</div>				
 				</div>
 			 <? } 
