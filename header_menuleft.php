@@ -95,7 +95,7 @@ if(basename($_SERVER["SCRIPT_NAME"]) == "index.php"){
          else
     	   $picture="uploads/".$_SESSION['picture'];     
          
-         echo "<div id='notification'><img height='30' weight='30' src='".$picture."' >";
+         echo "<div id='notification'><img height='30' width='30' src='".$picture."' >";
          echo "Hello, ".$_SESSION['name']." ".$_SESSION['last_name']."!
               <ul>
                 <li class = 'notification-container'>
