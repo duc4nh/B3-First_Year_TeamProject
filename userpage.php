@@ -35,7 +35,7 @@ include_once("config.php");
     <div id="item_page">
       <div id="left_item">
         <div id="profile_pic">
-          <img height="150" weight="150" src="<?php echo $picture; ?>">
+          <img height="150" width="150" src="<?php echo $picture; ?>">
         </div>
         <br/>
         <div id="user_contact">
