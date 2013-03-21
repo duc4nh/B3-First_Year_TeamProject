@@ -39,7 +39,8 @@ include_once("config.php");
         </div>
         <br/>
         <div id="user_contact">
-          <button type="submit" name="send_mess" />Send A Message</button>
+          <? if(!empty($_SESSION['user_id'])) echo "
+          <a href='message.php?user={$user_id}'  name='send_mess' />Send message</a>"; ?>
           <br>
 	  <br>
 	  
