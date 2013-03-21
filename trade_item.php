@@ -5,8 +5,9 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
 	include('functions.php');
 
 	$bidded_item_id = escape_value($_POST['item']);
-	if(empty($bidded_item_id))
-		$errors[] = "Please enter item name<br>";
+  $bidder_price = escape_value($_POST['bidder_price']);
+	if(empty($bidded_item_id) && empty($bidder_price))
+		$errors[] = "Please enter item name or sum of money<br>";
 
 
 
@@ -15,6 +16,7 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
 	{
 		include_once('config.php');
 		$item_id = $_GET['id'];
+  
     $item = mysql_query("SELECT * FROM items WHERE item_id = '$item_id'");
     while($row = mysql_fetch_assoc($item))
     {
@@ -22,11 +24,7 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
       $owner_id = $row['user_id'];
       $item_name = $row['name'];
     }
-    $item2 = mysql_query("SELECT * FROM items WHERE item_id = '$bidded_item_id'");
-    while($row = mysql_fetch_assoc($item))
-    {
-      $bidder_id = $row['user_id'];
-    }
+    
     
       $dateNow = date("Y-m-d H:i:s", time());
 		
@@ -36,14 +34,16 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
 					`owner_id` ,
 					`bidded_item_id` ,
 					`bidder_id` ,
-					`date`
+					`date` ,
+          `price`
 					) VALUES (
 					'{$item_id}', 
 					'{$item_type}', 
 					'{$owner_id}',
 					'{$bidded_item_id}',
 					'{$_SESSION['user_id']}', 
-					'{$dateNow}')";
+					'{$dateNow}',
+          '{$bidder_price}')";
     if($_SESSION['user_id'] != $owner_id)
     { 
 		  mysql_query($query);
@@ -73,6 +73,8 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
       elseif(!empty($message))
 	{
 	echo $message;
+  echo $bidder_price;
+  echo $bidded_item_id;
 	}else{
       ?>
 <?php include_once('config.php'); ?>
@@ -82,7 +84,7 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
         <div id="register_box">
         <form name="input" action="" method="post" enctype="multipart/form-data">
           <fieldset>
-	      <legend>Item do you want to trade: </legend></br>
+	      <legend>Item/sum do you want to trade: </legend></br>
 			<?
 			if(is_array($errors)) {
 				echo "<div style='color:red;'>";
@@ -125,9 +127,18 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
 			echo ">{$cat['name']}</option>";
 		}
 		?>
+    <option value="0" ></option>
 			  </select>
+
               </td>
             </tr>
+            <td></td><td><b>OR</b></td><td></td>
+            <tr>
+              <td>Money</td>
+              <td><input type="text" name = "bidder_price"/></input></td>
+            </tr>
+              
+            
             
            
             
