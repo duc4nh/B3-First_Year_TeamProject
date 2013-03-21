@@ -1,6 +1,7 @@
 <?php 
 session_start();
-$item_id = $_GET['id'];
+include('functions.php');
+$item_id = escape_value($_GET['id']);
 if(!empty($_POST) AND !empty($_SESSION['email']))
 {
 	include('functions.php');
@@ -70,6 +71,7 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
 	}else{
       ?>
 <?php include_once('config.php');
+$item_id = escape_value($_GET['id']);
   $qry = mysql_query("SELECT * FROM `items` WHERE `item_id` = '$item_id'");
   if (mysql_numrows($qry) != 0)
   {
