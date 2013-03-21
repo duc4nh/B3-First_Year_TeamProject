@@ -162,10 +162,10 @@ include('config.php');
   $item1 = mysql_query("SELECT * FROM items ORDER BY item_id DESC LIMIT 1");
   while ($row = mysql_fetch_assoc($item1)) 
   {
-      $item_id = $row['item_id'];
-      $picture = $row['picture'];
-      $price = $row['price'];
-      $name = $row['name'];
+      $item_id = stripslashes($row['item_id']);
+      $picture = stripslashes($row['picture']);
+      $price = stripslashes($row['price']);
+      $name = strlen($row['name']) > 21 ? substr(stripslashes($row['name']),0,18).'...' : stripslashes($row['name']);
       if($picture == NULL)
         $picture='images/no_image.jpg';
       else
@@ -177,7 +177,7 @@ include('config.php');
 echo "<div class='prod_box_left'>
         	<div class='top_prod_box'></div>
             <div class='center_prod_box'>            
-                 <div class='product_title'><a href='item_page.php?id=".$item_id."'>Latest added</a></div>
+                 <div class='product_title'><a title='{$row['name']}' href='item_page.php?id=".$item_id."'>Latest added</a></div>
                  <center><h6>".$name."</h6></center>
                  <div class='product_img'><a href='item_page.php?id=".$item_id."'><img border='0' height='94' weight='94'  src='".$picture."'></a></div>
                  <div class='prod_price'><span class='price'>£".$price."</span></div>                        
@@ -193,10 +193,10 @@ $item1 = mysql_query("SELECT * FROM items WHERE item_id = '$random_item'");
   while ($row = mysql_fetch_assoc($item1)) 
   {
      
-      $item2_id = $row['item_id'];
-      $picture2 = $row['picture'];
-      $price2 = $row['price'];
-      $name2 = $row['name'];
+      $item2_id = stripslashes($row['item_id']);
+      $picture2 = stripslashes($row['picture']);
+      $price2 = stripslashes($row['price']);
+      $name2 = strlen($row['name']) > 21 ? substr(stripslashes($row['name']),0,18).'...' : stripslashes($row['name']);2
       if($picture2 == NULL)
         $picture2='images/no_image.jpg';
     
@@ -212,7 +212,7 @@ if($name2 == NULL)
 echo "<div class='prod_box_left'>
           <div class='top_prod_box'></div>
             <div class='center_prod_box'>            
-                 <div class='product_title'><a href='item_page.php?id=".$item2_id."'>Random product</a></div>
+                 <div class='product_title'><a title='{$row['name']}' href='item_page.php?id=".$item2_id."'>Random product</a></div>
                  <center><h6>".$name2."</h6></center>
                  <div class='product_img'><a href='item_page.php?id=".$item2_id."'><img border='0' height='94' weight='94'  src='". $picture2 ."'></a></div>
                  <div class='prod_price'><span class='price'>£".$price2."</span></div>                        
@@ -224,10 +224,10 @@ echo "<div class='prod_box_left'>
 $item3 = mysql_query("SELECT * FROM items ORDER BY views DESC LIMIT 1");
   while ($row = mysql_fetch_assoc($item3)) 
   {
-      $item3_id = $row['item_id'];
-      $picture3 = $row['picture'];
-      $price3 = $row['price'];
-      $name3 = $row['name'];
+      $item3_id = stripslashes($row['item_id']);
+      $picture3 = stripslashes($row['picture']);
+      $price3 = stripslashes($row['price']);
+      $name3 = strlen($row['name']) > 21 ? substr(stripslashes($row['name']),0,18).'...' : stripslashes($row['name']);
       if($picture == NULL)
         $picture='images/no_image.jpg';
       else
@@ -236,7 +236,7 @@ $item3 = mysql_query("SELECT * FROM items ORDER BY views DESC LIMIT 1");
 echo "<div class='prod_box_left'>
         	<div class='top_prod_box'></div>
             <div class='center_prod_box'>            
-                 <div class='product_title'><a href='item_page.php?id=".$item3_id."'>Most popular</a></div>
+                 <div class='product_title'><a title='{$row['name']}' href='item_page.php?id=".$item3_id."'>Most popular</a></div>
                  <center><h6>".$name3."</h6></center>
                  <div class='product_img'><a href='item_page.php?id=".$item3_id."'><img border='0' height='94' weight='94'  src='".$picture3."'></a></div>
                  <div class='prod_price'><span class='price'>£".$price3."</span></div>                        
