@@ -22,7 +22,7 @@ $user_id = $_SESSION['user_id'];
                  $price = $row['price'];
                  $status = $row['status'];
                  $type = $row['type'];
-                 $name = $row['name'];
+                 $name = stripslashes($row['name']);
                  $category_id = $row['category_id'];
                  $views = $row['views'];
                  $picture = $row['picture'];
@@ -51,7 +51,7 @@ echo "
 
 <div class='prod_box'>
             <div class='top_prod_box'></div>
-            <div class='center_prod_box'>            
+            <div class='center_prod_box blocks'>            
                  <div class='product_title'><a href='item_page.php?id=".$item_id."'>".$name."</a></div>
 		 <div class='product_img'><a href='item_page.php?id=".$item_id."'><img border='0' height='94' weight='94'  src='".$picture."'></a></div>
                  <div class='creation_date'>Created: <span class='creation'>".$creation_date ."</span></div> 
@@ -65,10 +65,6 @@ echo "
 </div>
 ";
 
-if($endline_count % 4 == 0)
-{
-  echo "<br>";
-}
                     }
                 }
               }
@@ -77,7 +73,46 @@ if($endline_count % 4 == 0)
 ?>
 
 </div>
+<script>
+var currentTallest = 0,
+     currentRowStart = 0,
+     rowDivs = new Array(),
+     $el,
+     topPosition = 0;
 
+ $('.blocks').each(function() {
+
+   $el = $(this);
+   topPostion = $el.position().top;
+   
+   if (currentRowStart != topPostion) {
+
+     // we just came to a new row.  Set all the heights on the completed row
+     for (currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++) {
+       rowDivs[currentDiv].height(currentTallest);
+     }
+
+     // set the variables for the new row
+     rowDivs.length = 0; // empty the array
+     currentRowStart = topPostion;
+     currentTallest = $el.height();
+     rowDivs.push($el);
+
+   } else {
+
+     // another div on the current row.  Add it to the list and check if it's taller
+     rowDivs.push($el);
+     currentTallest = (currentTallest < $el.height()) ? ($el.height()) : (currentTallest);
+
+  }
+   
+  // do the last row
+   for (currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++) {
+     rowDivs[currentDiv].height(currentTallest);
+   }
+   
+ })
+</script>
 <?php
 
 include('footer.php'); 
