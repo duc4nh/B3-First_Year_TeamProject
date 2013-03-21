@@ -146,8 +146,8 @@ input:focus
 
 
 #login_top{
-  float: right;
-  width: 264px;
+   float: right;
+   width: 264px;
    margin-top: 20px;
    font-weight: bold;
    color: #FFF;
@@ -453,6 +453,8 @@ color:#333333;}
 
 /*--------------footer----------------*/
 .footer{
+margin-top: 10px;
+margin-bottom: 10px;
 width:1000px;
 clear:both;
 height:65px;
