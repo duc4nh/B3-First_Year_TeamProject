@@ -15,47 +15,35 @@
           
 	<div class="index_box_body">
 	<h2>Featured</h2>
-<div class="prod_box">
-        	<div class="top_prod_box"></div>
-            <div class="center_prod_box">            
-                 <div class="product_title"><a href="details.html">Asus</a></div>
-                 <div class="product_img"><a href="details.html"><img border="0" title="" alt="" src="images/laptop.gif"></a></div>
-                 <div class="prod_price"><span class="price">270$</span></div>                        
+<?
+include('config.php');
+  
+  $item1 = mysql_query("SELECT * FROM items WHERE type='2' AND status=1 ORDER BY views DESC LIMIT 4");
+  while ($row = mysql_fetch_assoc($item1)) 
+  {
+      $item_id = stripslashes($row['item_id']);
+      $picture = stripslashes($row['picture']);
+      $price = stripslashes($row['price']);
+      $name = strlen($row['name']) > 21 ? substr(stripslashes($row['name']),0,18).'...' : stripslashes($row['name']);
+      if($picture == NULL)
+        $picture='images/no_image.jpg';
+      else
+    	$picture="uploads/".$picture;
+echo "
+<div class='prod_box'>
+            <div class='top_prod_box'></div>
+            <div class='center_prod_box'>            
+                 <div class='product_title'><a title='{$row['name']}' href='item_page.php?id=".$item_id."'>".$name."</a></div>
+                
+                 <div class='product_img'><a href='item_page.php?id=".$item_id."'><img border='0' height='94' width='94'  src='".$picture."'></a></div>
+                 <div class='prod_price'><span class='price'>£".$price."</span></div>                        
             </div>
-            <div class="bottom_prod_box"></div>             
-</div>
+            <div class='bottom_prod_box'></div>             
+</div> 
+";
 
-<div class="prod_box">
-        	<div class="top_prod_box"></div>
-            <div class="center_prod_box">            
-                 <div class="product_title"><a href="details.html">Iphone</a></div>
-                 <div class="product_img"><a href="details.html"><img border="0" title="" alt="" src="images/iphone.jpeg"></a></div>
-                 <div class="prod_price"><span class="price">640$</span></div>                        
-            </div>
-            <div class="bottom_prod_box"></div>             
-</div>
-
-<div class="prod_box">
-        	<div class="top_prod_box"></div>
-            <div class="center_prod_box">            
-                 <div class="product_title"><a href="details.html">Ipad</a></div>
-                 <div class="product_img"><a href="details.html"><img border="0" title="" alt="" src="images/ipad.png"></a></div>
-                 <div class="prod_price"><span class="price">20$</span></div>                        
-            </div>
-            <div class="bottom_prod_box"></div>             
-</div>
-
-<div class="prod_box">
-          <div class="top_prod_box"></div>
-            <div class="center_prod_box">            
-                 <div class="product_title"><a href="details.html">GPS</a></div>
-                 <div class="product_img"><a href="details.html"><img border="0" title="" alt="" src="images/gps.png"></a></div>
-                 <div class="prod_price"><span class="price">70$</span></div>                        
-            </div>
-            <div class="bottom_prod_box"></div>             
-</div>
-
-
+}
+?>
 	</div>
 	</br></br>
 	<!-- End Feature row -->
@@ -68,15 +56,14 @@
 <h2>Recently Posted</h2>
 <?php
 
-include('config.php');
   
   $item1 = mysql_query("SELECT * FROM items WHERE type='2' ORDER BY item_id DESC LIMIT 4");
   while ($row = mysql_fetch_assoc($item1)) 
   {
-      $item_id = $row['item_id'];
-      $picture = $row['picture'];
-      $price = $row['price'];
-      $name = $row['name'];
+      $item_id = stripslashes($row['item_id']);
+      $picture = stripslashes($row['picture']);
+      $price = stripslashes($row['price']);
+      $name = strlen($row['name']) > 21 ? substr(stripslashes($row['name']),0,18).'...' : stripslashes($row['name']);
       if($picture == NULL)
         $picture='images/no_image.jpg';
       else
@@ -87,7 +74,7 @@ echo "
 <div class='prod_box'>
             <div class='top_prod_box'></div>
             <div class='center_prod_box'>            
-                 <div class='product_title'><a href='item_page.php?id=".$item_id."'>".$name."</a></div>
+                 <div class='product_title'><a title='{$row['name']}' href='item_page.php?id=".$item_id."'>".$name."</a></div>
                 
                  <div class='product_img'><a href='item_page.php?id=".$item_id."'><img border='0' height='94' width='94'  src='".$picture."'></a></div>
                  <div class='prod_price'><span class='price'>£".$price."</span></div>                        
@@ -113,10 +100,10 @@ echo "
   $endline_count=0;
   while ($row = mysql_fetch_assoc($item1)) 
   {
-      $item_id = $row['item_id'];
-      $picture = $row['picture'];
-      $price = $row['price'];
-      $name = $row['name'];
+      $item_id = stripslashes($row['item_id']);
+      $picture = stripslashes($row['picture']);
+      $price = stripslashes($row['price']);
+      $name = strlen($row['name']) > 21 ? substr(stripslashes($row['name']),0,18).'...' : stripslashes($row['name']);
       if($picture == NULL)
         $picture='images/no_image.jpg';
       else
@@ -128,7 +115,7 @@ echo "
 <div class='prod_box'>
             <div class='top_prod_box'></div>
             <div class='center_prod_box'>            
-                 <div class='product_title'><a href='item_page.php?id=".$item_id."'>".$name."</a></div>
+                 <div class='product_title'><a title='{$row['name']}' href='item_page.php?id=".$item_id."'>".$name."</a></div>
                 
                  <div class='product_img'><a href='item_page.php?id=".$item_id."'><img border='0' height='94' width='94'  src='".$picture."'></a></div>
                  <div class='prod_price'><span class='price'>£".$price."</span></div>                        
