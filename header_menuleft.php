@@ -9,6 +9,7 @@
 </script>
 <title>MyUniTrader</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="style.css">
 <? // slider begins **********************************************
 if(basename($_SERVER["SCRIPT_NAME"]) == "index.php"){
