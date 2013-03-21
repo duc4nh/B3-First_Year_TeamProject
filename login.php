@@ -1,3 +1,6 @@
+<!-- header and menu left -->
+<?php include('header_menuleft.php');?>
+
 <?php
 session_start();
 include_once("functions.php"); 
@@ -51,8 +54,7 @@ else
   echo "Please check your details! <a href='index.php'>Click here </a> to go back to Home Page!";
 }
 ?>
-<!-- header and menu left -->
-<?php include('header_menuleft.php');?>
+
 
 <!-- Main body for page -->
 <?=$message;?>
