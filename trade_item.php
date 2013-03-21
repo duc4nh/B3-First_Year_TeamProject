@@ -9,7 +9,8 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
 	if(empty($bidded_item_id) && empty($bidder_price))
 		$errors[] = "Please enter item name or sum of money<br>";
 
-
+  if($bidded_item_id != '0'  && $bidder_price != NULL)
+    $errors[] = "Please enter item name OR sum of money<br> Not both at the same time!";
 
 	// By this point everything is cleanned and ready to put into database
 	if(!is_array($errors))
@@ -73,8 +74,7 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
       elseif(!empty($message))
 	{
 	echo $message;
-  echo $bidder_price;
-  echo $bidded_item_id;
+
 	}else{
       ?>
 <?php include_once('config.php'); ?>
