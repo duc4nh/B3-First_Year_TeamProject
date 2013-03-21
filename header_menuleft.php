@@ -194,9 +194,9 @@ $item1 = mysql_query("SELECT * FROM items WHERE item_id = '$random_item'");
   {
      
       $item2_id = stripslashes($row['item_id']);
-      $picture2 = stripslashes($row['picture']);
+      $picture = stripslashes($row['picture']);
       $price2 = stripslashes($row['price']);
-      $name2 = strlen($row['name']) > 21 ? substr(stripslashes($row['name']),0,18).'...' : stripslashes($row['name']);2
+      $name2 = strlen($row['name']) > 21 ? substr(stripslashes($row['name']),0,18).'...' : stripslashes($row['name']);
       if($picture2 == NULL)
         $picture2='images/no_image.jpg';
     
@@ -225,7 +225,7 @@ $item3 = mysql_query("SELECT * FROM items ORDER BY views DESC LIMIT 1");
   while ($row = mysql_fetch_assoc($item3)) 
   {
       $item3_id = stripslashes($row['item_id']);
-      $picture3 = stripslashes($row['picture']);
+      $picture = stripslashes($row['picture']);
       $price3 = stripslashes($row['price']);
       $name3 = strlen($row['name']) > 21 ? substr(stripslashes($row['name']),0,18).'...' : stripslashes($row['name']);
       if($picture == NULL)
