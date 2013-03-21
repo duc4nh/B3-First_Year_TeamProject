@@ -1,6 +1,6 @@
 <?php 
 session_start();
- $id1 = $_SESSION['user_id'];
+$id1 = $_SESSION['user_id'];
 if(!empty($_POST) AND !empty($_SESSION['email']))
 {
 	include('functions.php');
@@ -43,12 +43,13 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
 					`name` = '{$name}', 
 					`last_name` = '{$last_name}',
 					`email` = '{$email}',
-					`password` = '{$password}',
 					`phone_number` = '{$phone_number}',
 					`status` = '{$status}',
-					`description` = '{$description}',";
+					`description` = '{$description}'";
+if(!empty($password)) $query .= ", `password` = '".md5($password)."'";
+if($_FILES['file']['name'] != "" AND !empty($password))	$query .= ", ";
 		if($_FILES['file']['name'] != "") $query .= "`picture` = '{$file}'";					
-					$query .= "WHERE `user_id` = '{$id1}'";
+					$query .= " WHERE `user_id` = '{$id1}'";
 					
 		
 		mysql_query($query);
@@ -119,7 +120,7 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
             <tr>
 	    
 	     <td width="1%">Password: </td>
-              <td><input type="password" name="password" value="<?echo $data['password'];?>"></td>
+              <td><input type="password" name="password" value=""></td>
             </tr><tr></tr>
             <tr>
 	    
