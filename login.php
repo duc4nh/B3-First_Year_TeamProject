@@ -1,5 +1,4 @@
 <!-- header and menu left -->
-<?php include('header_menuleft.php');?>
 
 <?php
 session_start();
@@ -51,10 +50,11 @@ if($email && $password)
 }
 else
 {
-  echo "Please check your details! <a href='index.php'>Click here </a> to go back to Home Page!";
+  $message = "Please check your details! <a href='index.php'>Click here </a> to go back to Home Page!";
 }
 ?>
 
+<?php include('header_menuleft.php');?>
 
 <!-- Main body for page -->
 <?=$message;?>
