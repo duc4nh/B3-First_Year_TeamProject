@@ -61,11 +61,12 @@ echo "
     <th id='title_table'><h5>Answer</h5></th>
 </tr>";
  
-  
+  $item_found=0;
 
      $query3 = mysql_query("SELECT * FROM Trade WHERE owner_id = '$user_id' OR bidder_id='$user_id'");
      while ($row = mysql_fetch_assoc($query3)) 
      {
+       $item_found=1;
        $item_id = $row['item_id'];
        $item_type = $row['item_type'];
        $owner_id = $row['owner_id'];
@@ -120,7 +121,10 @@ echo "
              echo "<td></td></tr>";
           }
      }
+
 echo "</table>";
+if ($item_found != 1)
+  echo "Sorry, there are no items in your Ofgfer list!";
 include('footer.php'); 
 ?>
 
