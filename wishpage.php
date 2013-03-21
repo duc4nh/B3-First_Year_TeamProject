@@ -14,12 +14,13 @@ $query2 = mysql_query("SELECT * FROM wishlist WHERE user_id = '$user_id' ");
     while ($row = mysql_fetch_array($query2)) 
          {
            $item_id = $row['item_id'];
-         
+           $item_found;
          
             $query3 = mysql_query("SELECT * FROM items WHERE item_id = '$item_id' ");
             $endline_count=0;
             while ($row = mysql_fetch_array($query3)) 
             {
+              $item_found = 1;
               $item_name_wish = $row['name'];
               $owner_id = $row['user_id'];
               
@@ -79,6 +80,8 @@ if($endline_count % 4 == 0)
             }
      }
 
+if ($item_found != 1)
+  echo "Sorry, there are no items in your wishlist!";
 ?>
 
 </div>
