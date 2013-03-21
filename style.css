@@ -516,6 +516,16 @@ width: 733px;
 .selling_box_body{
 width: 733px;
 }
+.pagination {
+display: inline;
+margin:0px;
+font-size:14px !important;
+}
+.pagination li {
+list-style:none;
+display:inline;
+margin-left: 3px;
+}
 
 
 
