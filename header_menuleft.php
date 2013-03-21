@@ -51,7 +51,7 @@ if(basename($_SERVER["SCRIPT_NAME"]) == "index.php"){
         echo "Welcome Student!  You can Log in or <a href='registerForm.php'>Create an account</a>";
       }
       else
-        echo "Welcome ".$_SESSION['name']." ".$_SESSION['last_name']."!";
+        echo "Welcome, ".$_SESSION['name']." ".$_SESSION['last_name']."!";
       ?>
     </div>
     <div id="logo">
