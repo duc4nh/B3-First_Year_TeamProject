@@ -11,14 +11,14 @@ $user_id = $_SESSION['user_id'];
 
 <?php
 $query2 = mysql_query("SELECT * FROM wishlist WHERE user_id = '$user_id' "); 
-    while ($row = mysql_fetch_assoc($query2)) 
+    while ($row = mysql_fetch_array($query2)) 
          {
            $item_id = $row['item_id'];
          
          
             $query3 = mysql_query("SELECT * FROM items WHERE item_id = '$item_id' ");
             $endline_count=0;
-            while ($row = mysql_fetch_assoc($query3)) 
+            while ($row = mysql_fetch_array($query3)) 
             {
               $item_name_wish = $row['name'];
               $owner_id = $row['user_id'];
@@ -33,7 +33,8 @@ $query2 = mysql_query("SELECT * FROM wishlist WHERE user_id = '$user_id' ");
               $name = $row['name'];
               $category_id = $row['category_id'];
               $views = $row['views'];
-
+	      $category_name = mysql_fetch_array(mysql_query("SELECT * FROM categories WHERE category_id = '$category_id' "));
+	      $category_name = $category_name['category_name'];
 
 
               $picture = $row['picture'];
@@ -44,7 +45,7 @@ $query2 = mysql_query("SELECT * FROM wishlist WHERE user_id = '$user_id' ");
     		$picture="uploads/".$picture;
 
               $query4 = mysql_query("SELECT * FROM users WHERE user_id = '$owner_id' ");
-              while ($row = mysql_fetch_assoc($query4) && $endline_count < 10) 
+              while (($row = mysql_fetch_array($query4)) && $endline_count < 10) 
               {
                 $owner_name = $row['name'];
                 $owner_last_name = $row['last_name'];
