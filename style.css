@@ -214,7 +214,7 @@ float: right;
   height: auto;
   padding: 10px 10px 10px 0px;
   width: 173px;
-  height: 192px;
+  min-height: 192px;
 }
 .top_prod_box {
   background: url("images/product_box_top.gif") no-repeat scroll center bottom transparent;
@@ -504,6 +504,9 @@ text-decoration:underline;
 #all_items a{
   text-decoration:none;
   color: black;
+}
+.selling_box_body{
+width: 733px;
 }
 
 
