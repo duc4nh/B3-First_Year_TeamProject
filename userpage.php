@@ -1,10 +1,9 @@
 <!-- header and menu left -->
 <?php include('header_menuleft.php'); 
- 
-        $user_id = $_GET['id'];
-        $connect = mysql_connect("ramen.cs.man.ac.uk", "12_COMP10120_B3", "jIho9xRbbSbPvcIC") or die ("Could not connect!");
-        mysql_select_db("12_COMP10120_B3", $connect) or die("Could not find db!");
-  
+ include_once("functions.php");
+include_once("config.php");
+        $user_id = escape_value($_GET['id']);
+       
         $query = mysql_query("SELECT * FROM users WHERE user_id = '$user_id' ");
         while ($row = mysql_fetch_assoc($query)) 
          {
@@ -116,7 +115,7 @@
 
       
       <div id="item_comments">
-                <div class="fb-comments" data-href="http://rtd.lt/fbcomments/?id=<?php echo $item_id;?>" data-width="675" data-num-posts="10"></div>
+                <div class="fb-comments" data-href="http://rtd.lt/fbcomments/?id=<?php echo $user_id;?>" data-width="675" data-num-posts="10"></div>
       </div>
 
     </div>
