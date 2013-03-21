@@ -4,15 +4,13 @@ include('functions.php');
 $item_id = escape_value($_GET['id']);
 if(!empty($_POST) AND !empty($_SESSION['email']))
 {
-	include('functions.php');
+	include_once('functions.php');
 	$type = escape_value($_POST['type']);
 	$item_name = escape_value($_POST['item_name']);
 	$category = escape_value($_POST['category']);
 	$description = escape_value($_POST['description']);
 	$price = escape_value($_POST['price']);	
 	
-		
-
 	// if no errors, deal with upload
 	if(!is_array($errors))
 	{
@@ -26,7 +24,7 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
 				if (!is_array($errors)) {  
 					if (move_uploaded_file($_FILES['file']['tmp_name'], "uploads/".$nameFile)) { 
 						$file = $nameFile;
-						chmod("uploads/".$nameFile, 0644);			 
+					chmod("uploads/".$nameFile,0644);			 
 					}
 					else $errors[] = 'Upload failed<br>';
 				}
@@ -44,8 +42,9 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
 		$query = " UPDATE `items` 
 		           SET `name` = '{$item_name}', `category_id`='{$category}',
 			       `description`='{$description}',
-			       `picture`='{$file}', `price`='{$price}', `type`='{$type}'
-			   WHERE `item_id`='$item_id'";
+			       `price`='{$price}', `type`='{$type}'";
+if(!empty($file)) $query .= ", `picture` = '{$file}'";			
+		$query .= " WHERE `item_id`='$item_id'";
 		
 		mysql_query($query);
 		$message = "Succesfully updated, you can view you item <a
