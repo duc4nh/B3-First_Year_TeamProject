@@ -73,14 +73,15 @@
             echo "
           <h5>Requester: <a href='userpage.php?id=".$user_id_i."'>".$user_name." ".$user_last_name."</a></h5>";
           ?>
-          <button type="submit" name="send_mess" />Send message</button>
+	<? if(!empty($_SESSION['user_id'])) echo"
+          <button href='message.php?user={$user_id_i}' type='submit' name='send_mess' />Send message</button>"; ?>
         </div>
       </div>
       <div id="item_title">
         <b>Title:</b>  <?php echo $name; ?>
         <hr>
       
-        <b>Price:</b>  $<?php echo $price; ?>
+        <b>Price:</b>  £<?php echo $price; ?>
         <hr>
         <b>Creation date:</b>  <?php echo $creation_date; ?>
         <hr>
@@ -102,15 +103,14 @@
       <br>
       <div id="item_trade">
        <?php  
-       if($_SESSION['user_id'] != $user_id_i)
+       if($_SESSION['user_id'] != $user_id_i AND !empty($_SESSION['user_id']))
        { 
           if($status == 1)
             echo "
-           <a href='trade_item.php?id=".$item_id."' ><button>Trade</button></a>
-        
-           <a href='wishList.php?id=".$item_id."'><button>Add to wishlist</button></a>";
+           <a href='trade_item.php?id=".$item_id."' ><button>Trade</button></a>";
+	   echo "<a href='wishList.php?id=".$item_id."'><button>Add to wishlist</button></a>";
         }
-	else
+	elseif(!empty($_SESSION['user_id']))
 	{  
 	  echo "<a href='edit_item_page.php?id=".$item_id."'><button>Edit Item</button></a>";
 	  echo "<a href='delete_item.php?id=".$item_id."'><button>Delete Item</button></a>";
