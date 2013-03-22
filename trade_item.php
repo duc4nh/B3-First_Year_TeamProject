@@ -16,7 +16,8 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
 	if(!is_array($errors))
 	{
 		include_once('config.php');
-		$item_id = $_GET['id'];
+include_once('functions.php');
+		$item_id = escape_value($_GET['id']);
   
     $item = mysql_query("SELECT * FROM items WHERE item_id = '$item_id'");
     while($row = mysql_fetch_assoc($item))
@@ -101,7 +102,8 @@ if(!empty($_POST) AND !empty($_SESSION['email']))
               <td>
               <select name="item">
 		<?
-		$item_id = $_GET['id'];
+include_once('functions.php');
+		$item_id = escape_value($_GET['id']);
 		
     $item2 = mysql_query("SELECT * FROM items WHERE item_id = '$item_id'");
     while($row = mysql_fetch_assoc($item2))
