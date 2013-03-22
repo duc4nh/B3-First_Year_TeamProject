@@ -141,7 +141,7 @@ echo "
 
 echo "</table>";
 if ($item_found != 1)
-  echo "Sorry, there are no items in your Ofgfer list!";
+  echo "Sorry, there are no items in your Offer list!";
 include('footer.php'); 
 ?>
 
