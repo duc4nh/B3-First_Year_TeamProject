@@ -116,7 +116,7 @@ include_once("config.php");
 
       
       <div id="item_comments">
-                <div class="fb-comments" data-href="http://rtd.lt/fbcomments/?id=<?php echo $user_id;?>" data-width="675" data-num-posts="10"></div>
+                <div class="fb-comments" data-href="http://rtd.lt/fbcomments/users.php?id=<?php echo $user_id;?>" data-width="675" data-num-posts="10"></div>
       </div>
 
     </div>
