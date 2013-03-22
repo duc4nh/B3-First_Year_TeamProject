@@ -6,12 +6,23 @@ $answer = escape_value($_GET['id']);
 $offer_item_id = escape_value($_GET['idq']);
 $offer_trade_id = escape_value($_GET['idw']);
 $offer_trade_name = escape_value($_GET['ide']);
+$offer_trade_email = escape_value($_GET['idr']);
 
+while ($row = mysql_fetch_assoc($query4)) 
+{    
+  $item_name = $row['name'];
+  $status = $row['status'];
+} 
 echo $offer_item_id;
 echo $offer_trade_id;
 echo $offer_trade_name;
 if($answer == 'accept')
 {
+$to = $offer_trade_email;
+$subject = "MyUniTrader offer notification";
+$message = "Hello! Your offer was accepted! Please contact the owner!";
+$headers = "From MyUniTrader";
+mail($to,$subject,$message,$headers);
 if($offer_trade_name == '-')
 {
   mysql_query("UPDATE `items` 
@@ -33,6 +44,11 @@ mysql_query("UPDATE `items`
 }
 if($answer == 'decline')
   {
+    $to = $offer_trade_email;
+    $subject = "MyUniTrader offer notification";
+    $message = "Hello! Your offer was accepted! Please contact the owner!";
+    $headers = "From MyUniTrader"; 
+    mail($to,$subject,$message,$headers);
     mysql_query("DELETE FROM `Trade` WHERE `bidded_item_id` = $offer_trade_id AND `item_id` = $offer_item_id");
     header("Location: offers.php");
   }
@@ -104,6 +120,7 @@ echo "
        while ($row = mysql_fetch_assoc($query7)) 
        {    
          $bidder_name = $row['name'];
+         $bidder_email = $row['email'];
        }   
         if($status != 0)
         {echo "<tr id='item_table'>
@@ -114,8 +131,8 @@ echo "
               <td> ".$bidder_name."</a></td>
               <td> ".$date."</a></td>";
            if($_SESSION['user_id'] == $owner_id)
-             {echo "<td> <a href='offers.php?id=accept&idq=".$item_id."&idw=".$bidder_item_id."&ide=".$bidder_item_name."'><button>Accept offer</button></a>
-                             <a href='offers.php?id=decline&idq=".$item_id."&idw=".$bidder_item_id."&ide=".$bidder_item_name."'><button>Decline offer</button></a></td>
+             {echo "<td> <a href='offers.php?id=accept&idq=".$item_id."&idw=".$bidder_item_id."&ide=".$bidder_item_name."&idr=".$bidder_email."'><button>Accept offer</button></a>
+                             <a href='offers.php?id=decline&idq=".$item_id."&idw=".$bidder_item_id."&ide=".$bidder_item_name."&idr=".$bidder_email."'><button>Decline offer</button></a></td>
               </tr>"; }
            else
              echo "<td></td></tr>";
