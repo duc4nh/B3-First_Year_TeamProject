@@ -1,11 +1,11 @@
 <?php
 session_start();
 include('config.php');
-
-$answer = $_GET['id'];
-$offer_item_id = $_GET['idq'];
-$offer_trade_id = $_GET['idw'];
-$offer_trade_name = $_GET['ide'];
+include_once("functions.php");
+$answer = escape_value($_GET['id']);
+$offer_item_id = escape_value($_GET['idq']);
+$offer_trade_id = escape_value($_GET['idw']);
+$offer_trade_name = escape_value($_GET['ide']);
 
 echo $offer_item_id;
 echo $offer_trade_id;
@@ -128,4 +128,3 @@ if ($item_found != 1)
 include('footer.php'); 
 ?>
 
-?>
