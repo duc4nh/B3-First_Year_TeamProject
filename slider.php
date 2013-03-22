@@ -39,13 +39,13 @@
 					            <h4>Contact</h4>
 					            <p>If you have complaints or suggestions, please contact us:<br><br>
 
-					            	-Berianu Vlad: berianuvlad@gmail.com<br>
-					            	-Duc Anh: example@example.com<br>
-					            	-Karolis Skripka: example@example.com<br>
-					            	-Eugene Varghin: example@example.com<br>
-					            	-Ali Safarli: example@example.com<br>
-					            	-Georgios Tzamousis:example@example.com<br>
-					            	-Lorin Patrick Nicolae: example@example.com
+					            	-Berianu Vlad<br>
+					            	-Duc Anh<br>
+					            	-Karolis Skripka<br>
+					            	-Eugene Varghin<br>
+					            	-Ali Safarli<br>
+					            	-Georgios Tzamousis<br>
+					            	-Lorin Patrick Nicolae
 					            </p>
 					         </div>
 					    </li>
