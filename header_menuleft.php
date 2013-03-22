@@ -195,7 +195,7 @@ $item1 = mysql_query("SELECT * FROM items WHERE item_id = '$random_item'");
   {
      
       $item2_id = stripslashes($row['item_id']);
-      $picture = stripslashes($row['picture']);
+      $picture2 = stripslashes($row['picture']);
       $price2 = stripslashes($row['price']);
       $name2 = strlen($row['name']) > 21 ? substr(stripslashes($row['name']),0,18).'...' : stripslashes($row['name']);
       if($picture2 == NULL)
@@ -215,7 +215,7 @@ echo "<div class='prod_box_left'>
             <div class='center_prod_box'>            
                  <div class='product_title'><a title='{$row['name']}' href='item_page.php?id=".$item2_id."'>Random product</a></div>
                  <center><h6>".$name2."</h6></center>
-                 <div class='product_img'><a href='item_page.php?id=".$item2_id."'><img border='0' height='94' width='94'  src='". $picture2 ."'></a></div>
+                 <div class='product_img'><a href='item_page.php?id=".$item2_id."'><img border='0' height='94' width='94'  src='uploads/". $picture2 ."'></a></div>
                  <div class='prod_price'><span class='price'>£".$price2."</span></div>                        
             </div>
             <div class='bottom_prod_box'></div>             
