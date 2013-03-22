@@ -322,10 +322,13 @@ font-weight: bold;
   padding-top: 20px;
   float: left;
   font-weight: bold;
+padding-right: 7px;
+width: 227px;
 }
 #user_contact a{
  text-decoration: none;
  color: #000;
+
 }
 #user_contact button{
   width: 170px;
