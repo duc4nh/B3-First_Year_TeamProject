@@ -12,20 +12,20 @@
   <td style="width:100px"></td>
   <td>
   <ul>
-    <li>Ali Safarli: Ali@gmail.com</br></br>
-    <li>Karolis Skripka: Kar@gmail.com</br></br>
-    <li>Duc Anh: Anh@gmail.com</br></br>
-    <li>Vlad Berianu: Vlad@gmail.com</br></br>
-    <li>Eugene Varghin: Eugene@gmail.com</br></br>
-    <li>Giorgos Taf: Gio@gmail.com</br></br>
-    <li>Lorin Patrick Nicolae: Lor@gmail.com</br></br>
+    <li>Ali Safarli</br></br>
+    <li>Karolis Skripka</br></br>
+    <li>Duc Anh</br></br>
+    <li>Vlad Berianu</br></br>
+    <li>Eugene Varghin</br></br>
+    <li>Giorgos Taf</br></br>
+    <li>Lorin Patrick Nicolae</br></br>
   </ul>
   </td>
   </tr>
   </table>
   
   </br>
-  <p><b>Contact us on <a href="https://www.facebook.com/groups/B3">Facebook</a></b></p>
+  <p><b>Contact us on webmaster [eta] screechowl.info</b></p>
   </br></fieldset>  
 
   <!-- Main body for page ends -->
