@@ -226,7 +226,7 @@ $item3 = mysql_query("SELECT * FROM items ORDER BY views DESC LIMIT 1");
   while ($row = mysql_fetch_assoc($item3)) 
   {
       $item3_id = stripslashes($row['item_id']);
-      $picture = stripslashes($row['picture']);
+      $picture3 = stripslashes($row['picture']);
       $price3 = stripslashes($row['price']);
       $name3 = strlen($row['name']) > 21 ? substr(stripslashes($row['name']),0,18).'...' : stripslashes($row['name']);
       if($picture == NULL)
@@ -239,7 +239,7 @@ echo "<div class='prod_box_left'>
             <div class='center_prod_box'>            
                  <div class='product_title'><a title='{$row['name']}' href='item_page.php?id=".$item3_id."'>Most popular</a></div>
                  <center><h6>".$name3."</h6></center>
-                 <div class='product_img'><a href='item_page.php?id=".$item3_id."'><img border='0' height='94' width='94'  src='".$picture3."'></a></div>
+                 <div class='product_img'><a href='item_page.php?id=".$item3_id."'><img border='0' height='94' width='94'  src='uploads/".$picture3."'></a></div>
                  <div class='prod_price'><span class='price'>£".$price3."</span></div>                        
             </div>
             <div class='bottom_prod_box'></div>             
