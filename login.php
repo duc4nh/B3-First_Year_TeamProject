@@ -1,5 +1,3 @@
-<!-- header and menu left -->
-
 <?php
 session_start();
 include_once("functions.php"); 
@@ -17,8 +15,8 @@ if($email && $password)
   {
     while ($row = mysql_fetch_assoc($query)) 
     {
-    	 $dbemail = $row['email'];
-    	 $dbpassword = $row['password'];
+       $dbemail = $row['email'];
+       $dbpassword = $row['password'];
        $user_id = $row['user_id'];
        $name = $row['name'];
        $last_name = $row['last_name'];
