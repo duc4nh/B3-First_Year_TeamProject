@@ -46,7 +46,7 @@ if($answer == 'decline')
   {
     $to = $offer_trade_email;
     $subject = "MyUniTrader offer notification";
-    $message = "Hello! Your offer was accepted! Please contact the owner!";
+    $message = "Hello! Your offer was declined! Please contact the owner!";
     $headers = "From MyUniTrader"; 
     mail($to,$subject,$message,$headers);
     mysql_query("DELETE FROM `Trade` WHERE `bidded_item_id` = $offer_trade_id AND `item_id` = $offer_item_id");
